@@ -83,7 +83,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <section className="bg-navy text-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="px-4 sm:px-6 lg:px-8 py-16 lg:py-24 flex flex-col justify-center">
               <p className="text-energy-blue text-xs font-semibold uppercase tracking-widest mb-6">{dict.home.heroEyebrow}</p>
@@ -102,12 +102,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="site-container py-8">
         <StageNotice dict={dict} />
       </div>
 
       <section className="py-16 lg:py-24 bg-silver">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="max-w-3xl mb-12">
             <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-tight">{dict.home.ecosystemTitle}</h2>
             <p className="mt-4 text-steel leading-relaxed">{dict.home.ecosystemBody}</p>
@@ -117,7 +117,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-tight">{dict.home.focusTitle}</h2>
             <p className="mt-4 text-steel">{dict.home.focusSubtitle}</p>
@@ -131,7 +131,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       <section className="py-16 lg:py-24 bg-navy text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">{dict.home.whyTitle}</h2>
@@ -151,7 +151,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       <section className="py-16 lg:py-24 bg-energy-blue-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="site-container text-center">
           <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-tight">{dict.home.partnershipsTitle}</h2>
           <p className="mt-4 text-steel max-w-2xl mx-auto leading-relaxed">{dict.home.partnershipsBody}</p>
           <div className="mt-8">

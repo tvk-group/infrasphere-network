@@ -7,7 +7,7 @@ interface PageHeroProps {
 export function PageHero({ title, subtitle, eyebrow }: PageHeroProps) {
   return (
     <section className="bg-navy text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="site-container py-16 lg:py-24">
         {eyebrow && (
           <p className="text-energy-blue text-xs font-semibold uppercase tracking-widest mb-4">{eyebrow}</p>
         )}

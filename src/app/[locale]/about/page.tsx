@@ -30,12 +30,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     <>
       <PageHero eyebrow={dict.about.eyebrow} title={dict.about.title} subtitle={dict.about.subtitle} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="site-container py-8">
         <StageNotice dict={dict} />
       </div>
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <h2 className="text-xl font-semibold text-navy mb-4">{dict.about.missionTitle}</h2>
@@ -50,7 +50,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       <section className="py-16 bg-silver">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <h2 className="text-xl font-semibold text-navy mb-4">{dict.about.strategicRoleTitle}</h2>
           <p className="text-steel leading-relaxed max-w-3xl mb-10">{dict.about.strategicRoleBody}</p>
           <EcosystemLayers dict={dict} />
@@ -58,7 +58,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <h2 className="text-xl font-semibold text-navy mb-4">{dict.about.developmentStageTitle}</h2>
           <p className="text-steel leading-relaxed max-w-3xl mb-8">{dict.about.developmentStageBody}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -72,7 +72,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       <section className="py-16 bg-navy text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <h2 className="text-xl font-semibold mb-4">{dict.about.thesisTitle}</h2>
           <p className="text-white/70 leading-relaxed max-w-3xl">{dict.about.thesisBody}</p>
         </div>

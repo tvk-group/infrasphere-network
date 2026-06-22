@@ -41,17 +41,17 @@ export function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-2.5 py-2 text-xs font-medium text-steel hover:text-navy border border-silver-dark hover:border-energy-blue/40 transition-colors"
+        className="flex items-center gap-1 px-2 py-1.5 text-[10px] xl:text-[11px] 2xl:text-xs font-medium text-steel hover:text-navy border border-silver-dark hover:border-energy-blue/40 transition-colors max-w-[7.5rem] 2xl:max-w-none"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label="Select language"
       >
-        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.2 2.4-3.3 5.4-3.3 9s1.1 6.6 3.3 9c2.2-2.4 3.3-5.4 3.3-9s-1.1-6.6-3.3-9z" />
         </svg>
-        <span className="max-w-[72px] truncate">{localeNames[locale]}</span>
-        <svg className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <span className="truncate">{localeNames[locale]}</span>
+        <svg className={`w-3 h-3 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>

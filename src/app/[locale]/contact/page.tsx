@@ -23,7 +23,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       <PageHero eyebrow={dict.contact.eyebrow} title={dict.contact.title} subtitle={dict.contact.subtitle} />
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-1">
               <h2 className="text-xl font-semibold text-navy mb-6">{dict.contact.getInTouchTitle}</h2>

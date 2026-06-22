@@ -29,12 +29,12 @@ export default async function AIInfrastructurePage({ params }: { params: Promise
         subtitle={dict.aiInfrastructure.subtitle}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="site-container py-8">
         <StageNotice dict={dict} />
       </div>
 
       <section className="py-16 bg-silver">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <p className="text-steel leading-relaxed max-w-3xl mb-4">{dict.aiInfrastructure.intro1}</p>
           <p className="text-steel leading-relaxed max-w-3xl mb-12">{dict.aiInfrastructure.intro2}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -49,7 +49,7 @@ export default async function AIInfrastructurePage({ params }: { params: Promise
       </section>
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="site-container text-center">
           <h2 className="text-xl font-semibold text-navy mb-4">{dict.aiInfrastructure.partnershipsTitle}</h2>
           <p className="text-steel max-w-2xl mx-auto mb-8">{dict.aiInfrastructure.partnershipsBody}</p>
           <Button href={localizedPath(locale, "contact")}>{dict.common.discussAIInfrastructureOpportunities}</Button>
