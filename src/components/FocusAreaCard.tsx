@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { FocusIcon } from "./icons";
+import type { Dictionary } from "@/i18n/get-dictionary";
 
 interface FocusAreaCardProps {
   title: string;
   description: string;
   href: string;
   icon: "energy" | "ai" | "smart" | "industrial" | "modular" | "mining";
+  learnMore: string;
 }
 
-export function FocusAreaCard({ title, description, href, icon }: FocusAreaCardProps) {
+export function FocusAreaCard({ title, description, href, icon, learnMore }: FocusAreaCardProps) {
   return (
     <Link
       href={href}
@@ -17,12 +19,10 @@ export function FocusAreaCard({ title, description, href, icon }: FocusAreaCardP
       <div className="w-12 h-12 flex items-center justify-center bg-silver text-navy group-hover:bg-energy-blue-light group-hover:text-energy-blue transition-colors mb-6">
         <FocusIcon type={icon} className="w-6 h-6" />
       </div>
-      <h3 className="text-lg font-semibold text-navy mb-3 group-hover:text-energy-blue transition-colors">
-        {title}
-      </h3>
+      <h3 className="text-lg font-semibold text-navy mb-3 group-hover:text-energy-blue transition-colors">{title}</h3>
       <p className="text-sm text-steel leading-relaxed">{description}</p>
       <span className="inline-block mt-4 text-xs font-medium text-energy-blue opacity-0 group-hover:opacity-100 transition-opacity">
-        Learn more →
+        {learnMore}
       </span>
     </Link>
   );

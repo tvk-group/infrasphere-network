@@ -1,25 +1,34 @@
 import Link from "next/link";
-import { navItems } from "@/lib/navigation";
 import { Logo } from "@/components/Logo";
+import type { Dictionary } from "@/i18n/get-dictionary";
+import type { Locale } from "@/i18n/config";
+import { getNavItems } from "@/lib/navigation-i18n";
 
-export function Footer() {
-  const mainLinks = navItems.filter((item) => item.href !== "/");
+interface FooterProps {
+  locale: Locale;
+  dict: Dictionary;
+}
+
+export function Footer({ locale, dict }: FooterProps) {
+  const allLinks = getNavItems(locale, dict);
+  const mainLinks = allLinks.filter((item) => item.href !== `/${locale}`);
+
+  const platformLinks = mainLinks.filter((_, i) => i < 6);
+  const resourceLinks = mainLinks.filter((_, i) => i >= 6);
 
   return (
     <footer className="bg-navy text-white mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <Logo variant="light" className="mb-4" />
-            <p className="text-steel-light text-sm leading-relaxed">
-              Infrastructure intelligence for the physical world. Part of the TVK ecosystem.
-            </p>
+            <Logo variant="light" className="mb-4" locale={locale} brand={dict.logo.brand} network={dict.logo.network} />
+            <p className="text-steel-light text-sm leading-relaxed">{dict.footer.tagline}</p>
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-steel-light mb-4">Platform</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-steel-light mb-4">{dict.footer.platform}</h3>
             <ul className="space-y-2">
-              {mainLinks.slice(0, 6).map((item) => (
+              {platformLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
                     {item.label}
@@ -30,9 +39,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-steel-light mb-4">Resources</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-steel-light mb-4">{dict.footer.resources}</h3>
             <ul className="space-y-2">
-              {mainLinks.slice(6).map((item) => (
+              {resourceLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
                     {item.label}
@@ -43,23 +52,21 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-steel-light mb-4">Ecosystem</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-steel-light mb-4">{dict.footer.ecosystem}</h3>
             <ul className="space-y-2 text-sm text-white/70">
-              <li>TVK Group — Holding Layer</li>
-              <li>SOVRA — Intelligence Layer</li>
-              <li>EnteleKRON — Trust Layer</li>
-              <li className="text-white">InfraSphere — Infrastructure Layer</li>
+              <li>{dict.ecosystem.tvkGroup} — {dict.ecosystem.holdingLayer}</li>
+              <li>{dict.ecosystem.sovra} — {dict.ecosystem.intelligenceLayer}</li>
+              <li>{dict.ecosystem.enteleKron} — {dict.ecosystem.trustLayer}</li>
+              <li className="text-white">{dict.ecosystem.infraSphere} — {dict.ecosystem.infrastructureLayer}</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-4">
           <p className="text-xs text-steel-light">
-            © {new Date().getFullYear()} InfraSphere Network. Currently in research and development stage.
+            {dict.footer.copyright.replace("{year}", String(new Date().getFullYear()))}
           </p>
-          <p className="text-xs text-steel-light">
-            infrasphere.network
-          </p>
+          <p className="text-xs text-steel-light">{dict.footer.domain}</p>
         </div>
       </div>
     </footer>
