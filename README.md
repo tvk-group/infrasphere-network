@@ -69,6 +69,23 @@ cp .env.example .env.local
 
 For production, verify your domain in Resend and set `CONTACT_FROM_EMAIL` to e.g. `InfraSphere Network <noreply@infrasphere.network>`.
 
+## Deployment (Vercel)
+
+This project must deploy as **Next.js**, not as a static site.
+
+If you see `404: NOT_FOUND` while static files like `/logo-mark.svg` load, the Vercel project is misconfigured — usually **Framework Preset = Other** with **Output Directory = `public`**.
+
+`vercel.json` in the repo forces `"framework": "nextjs"`. After merging, redeploy with **Clear build cache** enabled.
+
+In Vercel → Project Settings → Build & Deployment:
+
+| Setting | Value |
+|---------|-------|
+| Framework Preset | Next.js |
+| Build Command | `npm run build` (or leave default) |
+| Output Directory | *(empty — do not set `public`)* |
+| Root Directory | *(empty)* |
+
 ## Brand assets
 
 | File | Use |
