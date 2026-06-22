@@ -1,93 +1,54 @@
-# README.md
-
 # InfraSphere Network
 
 **Infrastructure Intelligence for the Physical World**
 
-InfraSphere Network is the infrastructure, energy systems and industrial technology platform of the TVK ecosystem.
+Official website for [InfraSphere Network](https://infrasphere.network) — the infrastructure, energy systems, AI infrastructure and industrial technology platform of the TVK ecosystem.
 
-The platform is designed to explore, develop and connect initiatives across energy infrastructure, AI infrastructure, smart industrial systems, modular infrastructure, data centers, mining infrastructure, automation and future physical-world technologies.
+## Tech Stack
 
----
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS
 
-## Vision
+## Development
 
-To build a future-focused infrastructure ecosystem where energy, intelligence, industrial systems and digital technologies work together.
+```bash
+npm install
+npm run dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000).
 
-## Mission
+## Build
 
-InfraSphere Network aims to support the development of:
+```bash
+npm run build
+npm start
+```
 
-* Energy infrastructure
-* Smart infrastructure
-* AI infrastructure
-* Industrial technology
-* Modular systems
-* Data center concepts
-* Mining infrastructure
-* Energy intelligence
-* Critical infrastructure innovation
+## Pages
 
----
+| Route | Description |
+|-------|-------------|
+| `/` | Home |
+| `/about` | About |
+| `/infrastructure` | Infrastructure |
+| `/energy-systems` | Energy Systems |
+| `/ai-infrastructure` | AI Infrastructure |
+| `/industrial-technology` | Industrial Technology |
+| `/modular-systems` | Modular Systems |
+| `/projects` | Projects |
+| `/strategic-partnerships` | Strategic Partnerships |
+| `/insights` | Insights |
+| `/contact` | Contact |
 
-## Current Stage
+## Positioning
 
-InfraSphere Network is currently in:
+InfraSphere Network is the physical infrastructure layer of the TVK ecosystem:
 
-* Research & Development
-* Concept Formation
-* Strategic Architecture
-* Pilot Preparation
-* Partnership Exploration
+- **TVK Group** — Holding Layer
+- **SOVRA** — Intelligence Layer
+- **EnteleKRON** — Trust Layer
+- **InfraSphere** — Infrastructure Layer
 
----
-
-## Strategic Position
-
-Within the TVK ecosystem:
-
-* TVK Group is the holding layer
-* SOVRA is the intelligence layer
-* EnteleKRON is the trust layer
-* InfraSphere is the physical infrastructure layer
-
----
-
-## Focus Areas
-
-### Energy Infrastructure
-
-Solar, renewable energy systems, storage concepts, energy monitoring and optimization.
-
-### AI Infrastructure
-
-GPU clusters, AI compute environments, edge infrastructure and future data center concepts.
-
-### Smart Infrastructure
-
-Smart buildings, industrial monitoring, IoT systems and digital infrastructure.
-
-### Industrial Systems
-
-Automation, predictive maintenance, factory intelligence and operational technology.
-
-### Modular Infrastructure
-
-Prefabricated systems, container-based infrastructure, emergency facilities and modular buildings.
-
-### Mining Infrastructure
-
-Mining facilities, power systems, cooling systems and hosting infrastructure concepts.
-
----
-
-## Important Notice
-
-InfraSphere Network is currently under development. Information on this platform represents ongoing research, future concepts and strategic planning. No claims are made regarding completed deployments, customers or operational projects unless explicitly stated.
-
----
-
-**InfraSphere Network**
-*Infrastructure Intelligence for the Physical World*
+Currently in research, development, concept formation and pilot preparation stage.
