@@ -634,6 +634,39 @@ export const id = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network saat ini berada dalam tahap riset, pengembangan, pembentukan konsep, dan persiapan pilot. Informasi di platform ini mewakili riset yang sedang berlangsung, konsep masa depan, dan perencanaan strategis. Tidak ada klaim yang dibuat mengenai deployment yang telah selesai, pelanggan berbayar, pendapatan operasional, atau kontrak pemerintah kecuali dinyatakan secara eksplisit.",
+    faqTitle: "Pertanyaan yang Sering Diajukan",
+    relatedLinksTitle: "Area Infrastruktur Terkait",
+    faq: [
+      {
+        question: "Apa itu InfraSphere Network?",
+        answer:
+          "InfraSphere Network adalah lapisan infrastruktur fisik ekosistem TVK — sedang dikembangkan untuk menghubungkan sistem energi, infrastruktur AI, teknologi industri, dan infrastruktur modular dalam satu visi platform strategis.",
+      },
+      {
+        question: "InfraSphere saat ini berada di tahap apa?",
+        answer:
+          "InfraSphere Network berada dalam tahap riset, pengembangan, pembentukan konsep, arsitektur strategis, dan persiapan pilot. Platform ini dirancang untuk inisiatif infrastruktur di masa depan, bukan deployment operasional.",
+      },
+      {
+        question: "Apa saja area fokus inti?",
+        answer:
+          "Area fokus inti meliputi infrastruktur energi, infrastruktur AI, infrastruktur cerdas, teknologi industri, sistem modular, dan konsep infrastruktur fasilitas pertambangan.",
+      },
+      {
+        question: "Bagaimana organisasi dapat berkolaborasi dengan InfraSphere?",
+        answer:
+          "InfraSphere mencari kemitraan strategis jangka panjang dengan perusahaan energi, operator infrastruktur, grup industri, firma rekayasa, operator pusat data, dan investor strategis. Gunakan formulir kontak untuk mendiskusikan peluang infrastruktur.",
+      },
+      {
+        question: "Apakah InfraSphere proyek cryptocurrency atau token?",
+        answer:
+          "Tidak. InfraSphere Network adalah platform infrastruktur, sistem energi, dan teknologi industri. Bukan proyek token, platform cryptocurrency, atau situs perdagangan.",
+      },
+    ],
+  },
 } as const;
 
 export default id;

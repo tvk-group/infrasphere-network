@@ -634,6 +634,39 @@ export const fi = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network on tällä hetkellä tutkimus-, kehitys-, konseptinmuodostus- ja pilottivalmisteluvaiheessa. Tällä alustalla esitetty tieto edustaa käynnissä olevaa tutkimusta, tulevia konsepteja ja strategista suunnittelua. Väitteitä valmiista käyttöönotoista, maksavista asiakkaista, operatiivisista tuloista tai valtion sopimuksista ei esitetä, ellei sitä ole erikseen ilmoitettu.",
+    faqTitle: "Usein kysytyt kysymykset",
+    relatedLinksTitle: "Aiheeseen liittyvät infrastruktuurialueet",
+    faq: [
+      {
+        question: "Mikä on InfraSphere Network?",
+        answer:
+          "InfraSphere Network on TVK-ekosysteemin fyysinen infrastruktuurikerros — sitä kehitetään yhdistämään energiajärjestelmät, tekoälyinfrastruktuuri, teollisuusteknologia ja modulaarinen infrastruktuuri yhden strategisen alustavisioin alle.",
+      },
+      {
+        question: "Missä vaiheessa InfraSphere on tällä hetkellä?",
+        answer:
+          "InfraSphere Network on tutkimus-, kehitys-, konseptinmuodostus-, strategisen arkkitehtuurin ja pilottivalmisteluvaiheessa. Alusta on suunniteltu tuleville infrastruktuurialoitteille, ei operatiivisille käyttöönotoille.",
+      },
+      {
+        question: "Mitkä ovat keskeiset painopistealueet?",
+        answer:
+          "Keskeisiin painopistealueisiin kuuluvat energiainfrastruktuuri, tekoälyinfrastruktuuri, älykäs infrastruktuuri, teollisuusteknologia, modulaariset järjestelmät ja kaivoslaitosten infrastruktuurikonseptit.",
+      },
+      {
+        question: "Miten organisaatiot voivat tehdä yhteistyötä InfraSpheren kanssa?",
+        answer:
+          "InfraSphere etsii pitkäaikaisia strategisia kumppanuuksia energiayhtiöiden, infrastruktuurin operaattoreiden, teollisuusryhmien, insinööritoimistojen, datakeskusoperaattoreiden ja strategisten sijoittajien kanssa. Käytä yhteydenottolomaketta keskustellaksesi infrastruktuurimahdollisuuksista.",
+      },
+      {
+        question: "Onko InfraSphere kryptovaluutta- tai token-projekti?",
+        answer:
+          "Ei. InfraSphere Network on infrastruktuuri-, energiajärjestelmä- ja teollisuusteknologia-alusta. Se ei ole token-projekti, kryptovaluutta-alusta tai kaupankäyntisivusto.",
+      },
+    ],
+  },
 } as const;
 
 export default fi;
