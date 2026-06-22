@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0a1628;
+  --navy-light: #132238;
+  --steel: #5a6578;
+  --steel-light: #8b95a5;
+  --silver: #f4f6f8;
+  --silver-dark: #e8ecf0;
+  --energy-blue: #1a6fd4;
+  --energy-blue-light: #e8f2fc;
+  --accent-green: #2d7a4f;
+  --accent-green-light: #e8f5ee;
+  --white: #ffffff;
+  --foreground: #1a2332;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-steel: var(--steel);
+  --color-steel-light: var(--steel-light);
+  --color-silver: var(--silver);
+  --color-silver-dark: var(--silver-dark);
+  --color-energy-blue: var(--energy-blue);
+  --color-energy-blue-light: var(--energy-blue-light);
+  --color-accent-green: var(--accent-green);
+  --color-accent-green-light: var(--accent-green-light);
+  --font-sans: var(--font-ibm-plex);
+}
+
+body {
+  background: var(--white);
+  color: var(--foreground);
+  font-family: var(--font-ibm-plex), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
