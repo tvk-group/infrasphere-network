@@ -24,7 +24,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
       <PageHero eyebrow={dict.insights.eyebrow} title={dict.insights.title} subtitle={dict.insights.subtitle} />
 
       <section className="py-8 border-b border-silver-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <span
@@ -39,7 +39,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
       </section>
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {articles.map((article) => (
               <article
