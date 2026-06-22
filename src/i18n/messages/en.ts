@@ -634,6 +634,39 @@ export const en = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network is currently in research, development, concept formation and pilot preparation stage. Information on this platform represents ongoing research, future concepts and strategic planning. No claims are made regarding completed deployments, paying customers, operational revenue or government contracts unless explicitly stated.",
+    faqTitle: "Frequently Asked Questions",
+    relatedLinksTitle: "Related Infrastructure Areas",
+    faq: [
+      {
+        question: "What is InfraSphere Network?",
+        answer:
+          "InfraSphere Network is the physical infrastructure layer of the TVK ecosystem — being developed to connect energy systems, AI infrastructure, industrial technology and modular infrastructure under one strategic platform vision.",
+      },
+      {
+        question: "What stage is InfraSphere currently in?",
+        answer:
+          "InfraSphere Network is in research, development, concept formation, strategic architecture and pilot preparation stage. The platform is designed for future infrastructure initiatives, not operational deployments.",
+      },
+      {
+        question: "What are the core focus areas?",
+        answer:
+          "Core focus areas include energy infrastructure, AI infrastructure, smart infrastructure, industrial technology, modular systems and mining facility infrastructure concepts.",
+      },
+      {
+        question: "How can organizations collaborate with InfraSphere?",
+        answer:
+          "InfraSphere seeks long-term strategic partnerships with energy companies, infrastructure operators, industrial groups, engineering firms, data center operators and strategic investors. Use the contact form to discuss infrastructure opportunities.",
+      },
+      {
+        question: "Is InfraSphere a cryptocurrency or token project?",
+        answer:
+          "No. InfraSphere Network is an infrastructure, energy systems and industrial technology platform. It is not a token project, cryptocurrency platform or trading website.",
+      },
+    ],
+  },
 } as const;
 
 export default en;

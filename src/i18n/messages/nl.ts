@@ -635,6 +635,39 @@ export const nl = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network bevindt zich momenteel in de fase van onderzoek, ontwikkeling, conceptvorming en pilotvoorbereiding. Informatie op dit platform vertegenwoordigt lopend onderzoek, toekomstige concepten en strategische planning. Er worden geen claims gemaakt over voltooide implementaties, betalende klanten, operationele omzet of overheidscontracten, tenzij dit expliciet wordt vermeld.",
+    faqTitle: "Veelgestelde vragen",
+    relatedLinksTitle: "Gerelateerde infrastructuurgebieden",
+    faq: [
+      {
+        question: "Wat is InfraSphere Network?",
+        answer:
+          "InfraSphere Network is de fysieke infrastructuurlaag van het TVK-ecosysteem — in ontwikkeling om energiesystemen, AI-infrastructuur, industriële technologie en modulaire infrastructuur te verbinden onder één strategische platformvisie.",
+      },
+      {
+        question: "In welke fase bevindt InfraSphere zich momenteel?",
+        answer:
+          "InfraSphere Network bevindt zich in de fase van onderzoek, ontwikkeling, conceptvorming, strategische architectuur en pilotvoorbereiding. Het platform is ontworpen voor toekomstige infrastructuurinitiatieven, niet voor operationele implementaties.",
+      },
+      {
+        question: "Wat zijn de kernfocusgebieden?",
+        answer:
+          "Kernfocusgebieden omvatten energie-infrastructuur, AI-infrastructuur, slimme infrastructuur, industriële technologie, modulaire systemen en concepten voor mijnfaciliteiten.",
+      },
+      {
+        question: "Hoe kunnen organisaties samenwerken met InfraSphere?",
+        answer:
+          "InfraSphere zoekt langetermijnstrategische partnerschappen met energiebedrijven, infrastructuurbeheerders, industriële groepen, ingenieursbureaus, datacenterbeheerders en strategische investeerders. Gebruik het contactformulier om infrastructuurmogelijkheden te bespreken.",
+      },
+      {
+        question: "Is InfraSphere een cryptocurrency- of tokenproject?",
+        answer:
+          "Nee. InfraSphere Network is een platform voor infrastructuur, energiesystemen en industriële technologie. Het is geen tokenproject, cryptocurrencyplatform of handelswebsite.",
+      },
+    ],
+  },
 } as const;
 
 export default nl;

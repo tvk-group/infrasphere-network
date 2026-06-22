@@ -634,6 +634,39 @@ export const tr = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network halihazırda araştırma, geliştirme, konsept oluşturma ve pilot hazırlık aşamasındadır. Bu platformdaki bilgiler devam eden araştırmaları, gelecekteki konseptleri ve stratejik planlamayı yansıtmaktadır. Açıkça belirtilmedikçe tamamlanmış konuşlandırmalar, ücretli müşteriler, operasyonel gelir veya devlet sözleşmeleri hakkında iddiada bulunulmaz.",
+    faqTitle: "Sık Sorulan Sorular",
+    relatedLinksTitle: "İlgili Altyapı Alanları",
+    faq: [
+      {
+        question: "InfraSphere Network nedir?",
+        answer:
+          "InfraSphere Network, TVK ekosisteminin fiziksel altyapı katmanıdır — enerji sistemleri, yapay zekâ altyapısı, endüstriyel teknoloji ve modüler altyapıyı tek bir stratejik platform vizyonu altında birleştirmek üzere geliştirilmektedir.",
+      },
+      {
+        question: "InfraSphere şu anda hangi aşamadadır?",
+        answer:
+          "InfraSphere Network; araştırma, geliştirme, konsept oluşturma, stratejik mimari ve pilot hazırlık aşamasındadır. Platform, operasyonel konuşlandırmalar için değil, gelecekteki altyapı girişimleri için tasarlanmıştır.",
+      },
+      {
+        question: "Temel odak alanları nelerdir?",
+        answer:
+          "Temel odak alanları; enerji altyapısı, yapay zekâ altyapısı, akıllı altyapı, endüstriyel teknoloji, modüler sistemler ve madencilik tesis altyapısı konseptlerini kapsar.",
+      },
+      {
+        question: "Kuruluşlar InfraSphere ile nasıl iş birliği yapabilir?",
+        answer:
+          "InfraSphere; enerji şirketleri, altyapı operatörleri, endüstriyel gruplar, mühendislik firmaları, veri merkezi operatörleri ve stratejik yatırımcılarla uzun vadeli stratejik ortaklıklar aramaktadır. Altyapı fırsatlarını görüşmek için iletişim formunu kullanın.",
+      },
+      {
+        question: "InfraSphere bir kripto para veya token projesi midir?",
+        answer:
+          "Hayır. InfraSphere Network; altyapı, enerji sistemleri ve endüstriyel teknoloji platformudur. Bir token projesi, kripto para platformu veya alım satım sitesi değildir.",
+      },
+    ],
+  },
 } as const;
 
 export default tr;

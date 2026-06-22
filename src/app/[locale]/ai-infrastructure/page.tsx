@@ -1,17 +1,16 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { StageNotice } from "@/components/StageNotice";
 import { Button } from "@/components/Button";
+import { SubPageSeo, SubPageFooter } from "@/components/seo/SubPageSeo";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, type Locale } from "@/i18n/config";
 import { localizedPath } from "@/i18n/paths";
+import { generatePageMetadata } from "@/lib/seo/page-metadata";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  const dict = await getDictionary(locale);
-  return { title: dict.aiInfrastructure.metaTitle, description: dict.aiInfrastructure.metaDescription };
+  return generatePageMetadata(locale, "aiInfrastructure");
 }
 
 export default async function AIInfrastructurePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -23,6 +22,7 @@ export default async function AIInfrastructurePage({ params }: { params: Promise
 
   return (
     <>
+      <SubPageSeo locale={locale} dict={dict} pathKey="aiInfrastructure" />
       <PageHero
         eyebrow={dict.aiInfrastructure.eyebrow}
         title={dict.aiInfrastructure.title}
@@ -55,6 +55,7 @@ export default async function AIInfrastructurePage({ params }: { params: Promise
           <Button href={localizedPath(locale, "contact")}>{dict.common.discussAIInfrastructureOpportunities}</Button>
         </div>
       </section>
+      <SubPageFooter locale={locale} dict={dict} pathKey="aiInfrastructure" />
     </>
   );
 }

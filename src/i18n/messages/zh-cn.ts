@@ -1,4 +1,4 @@
-export const zh = {
+export const zhCn = {
   meta: {
     siteName: "InfraSphere Network",
     title: "InfraSphere Network | 面向物理世界的基础设施智能",
@@ -635,6 +635,39 @@ export const zh = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network 目前处于研究、开发、概念形成和试点准备阶段。本平台信息代表进行中的研究、未来概念和战略规划。除非明确说明，否则不对已完成部署、付费客户、运营收入或政府合同作出任何声明。",
+    faqTitle: "常见问题",
+    relatedLinksTitle: "相关基础设施领域",
+    faq: [
+      {
+        question: "什么是 InfraSphere Network？",
+        answer:
+          "InfraSphere Network 是 TVK 生态系统的物理基础设施层——正在开发中，旨在将能源系统、AI 基础设施、工业技术和模块化基础设施连接在统一的战略平台愿景下。",
+      },
+      {
+        question: "InfraSphere 目前处于什么阶段？",
+        answer:
+          "InfraSphere Network 处于研究、开发、概念形成、战略架构和试点准备阶段。本平台面向未来的基础设施举措而设计，而非运营部署。",
+      },
+      {
+        question: "核心重点领域有哪些？",
+        answer:
+          "核心重点领域包括能源基础设施、AI 基础设施、智能基础设施、工业技术、模块化系统以及采矿设施基础设施概念。",
+      },
+      {
+        question: "组织如何与 InfraSphere 合作？",
+        answer:
+          "InfraSphere 寻求与能源公司、基础设施运营商、工业集团、工程公司、数据中心运营商和战略投资者的长期战略合作。请使用联系表单探讨基础设施合作机会。",
+      },
+      {
+        question: "InfraSphere 是加密货币或代币项目吗？",
+        answer:
+          "不是。InfraSphere Network 是基础设施、能源系统和工业技术平台。它不是代币项目、加密货币平台或交易网站。",
+      },
+    ],
+  },
 } as const;
 
-export default zh;
+export default zhCn;

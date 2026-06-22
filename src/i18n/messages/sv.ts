@@ -370,6 +370,39 @@ export const sv = {
         excerpt: "Metoder för att integrera hållbarhetsprinciper i infrastrukturplanering inom energi, industri och modulära system.",
       } },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network befinner sig för närvarande i forsknings-, utvecklings-, konceptbildnings- och pilotförberedelsefas. Information på denna plattform representerar pågående forskning, framtida koncept och strategisk planering. Inga påståenden görs gällande genomförda driftsättningar, betalande kunder, operativa intäkter eller offentliga kontrakt om det inte uttryckligen anges.",
+    faqTitle: "Vanliga frågor",
+    relatedLinksTitle: "Relaterade infrastrukturområden",
+    faq: [
+      {
+        question: "Vad är InfraSphere Network?",
+        answer:
+          "InfraSphere Network är det fysiska infrastrukturlagret i TVK-ekosystemet — utvecklas för att koppla samman energisystem, AI-infrastruktur, industriteknik och modulär infrastruktur under en strategisk plattformsvision.",
+      },
+      {
+        question: "Vilket stadium befinner sig InfraSphere i för närvarande?",
+        answer:
+          "InfraSphere Network befinner sig i forsknings-, utvecklings-, konceptbildnings-, strategisk arkitektur- och pilotförberedelsefas. Plattformen är utformad för framtida infrastrukturinitiativ, inte operativa driftsättningar.",
+      },
+      {
+        question: "Vilka är kärnområdena?",
+        answer:
+          "Kärnområdena omfattar energiinfrastruktur, AI-infrastruktur, smart infrastruktur, industriteknik, modulära system och koncept för gruvanläggningsinfrastruktur.",
+      },
+      {
+        question: "Hur kan organisationer samarbeta med InfraSphere?",
+        answer:
+          "InfraSphere söker långsiktiga strategiska partnerskap med energiföretag, infrastrukturoperatörer, industrigrupper, ingenjörsfirmor, datacenteroperatörer och strategiska investerare. Använd kontaktformuläret för att diskutera infrastrukturmöjligheter.",
+      },
+      {
+        question: "Är InfraSphere ett kryptovaluta- eller tokenprojekt?",
+        answer:
+          "Nej. InfraSphere Network är en plattform för infrastruktur, energisystem och industriteknik. Det är inte ett tokenprojekt, en kryptovalutaplattform eller en handelswebbplats.",
+      },
+    ],
+  },
 } as const;
 
 export default sv;
