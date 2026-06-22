@@ -635,6 +635,39 @@ export const ko = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network는 현재 연구, 개발, 개념 형성 및 파일럿 준비 단계에 있습니다. 본 플랫폼의 정보는 진행 중인 연구, 미래 개념 및 전략적 계획을 나타냅니다. 명시적으로 기재되지 않는 한, 완료된 배포, 유료 고객, 운영 수익 또는 정부 계약에 관한 주장은 하지 않습니다.",
+    faqTitle: "자주 묻는 질문",
+    relatedLinksTitle: "관련 인프라 영역",
+    faq: [
+      {
+        question: "InfraSphere Network란 무엇인가요?",
+        answer:
+          "InfraSphere Network는 TVK 생태계의 물리적 인프라 계층으로, 에너지 시스템, AI 인프라, 산업 기술 및 모듈형 인프라를 하나의 전략적 플랫폼 비전 아래 연결하도록 개발되고 있습니다.",
+      },
+      {
+        question: "InfraSphere는 현재 어떤 단계에 있나요?",
+        answer:
+          "InfraSphere Network는 연구, 개발, 개념 형성, 전략적 아키텍처 및 파일럿 준비 단계에 있습니다. 본 플랫폼은 운영 배포가 아닌 미래 인프라 이니셔티브를 위해 설계되었습니다.",
+      },
+      {
+        question: "핵심 집중 영역은 무엇인가요?",
+        answer:
+          "핵심 집중 영역에는 에너지 인프라, AI 인프라, 스마트 인프라, 산업 기술, 모듈형 시스템 및 채굴 시설 인프라 개념이 포함됩니다.",
+      },
+      {
+        question: "조직은 InfraSphere와 어떻게 협력할 수 있나요?",
+        answer:
+          "InfraSphere는 에너지 기업, 인프라 운영사, 산업 그룹, 엔지니어링 기업, 데이터 센터 운영사 및 전략적 투자자와의 장기적인 전략적 파트너십을 모색합니다. 인프라 기회에 대해서는 문의 양식을 이용해 주세요.",
+      },
+      {
+        question: "InfraSphere는 암호화폐 또는 토큰 프로젝트인가요?",
+        answer:
+          "아니요. InfraSphere Network는 인프라, 에너지 시스템 및 산업 기술 플랫폼입니다. 토큰 프로젝트, 암호화폐 플랫폼 또는 거래 웹사이트가 아닙니다.",
+      },
+    ],
+  },
 } as const;
 
 export default ko;
