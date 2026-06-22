@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { navItems } from "@/lib/navigation";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   const mainLinks = navItems.filter((item) => item.href !== "/");
@@ -9,14 +10,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 bg-white/10 flex items-center justify-center">
-                <span className="text-white text-xs font-bold tracking-wider">IS</span>
-              </div>
-              <div>
-                <span className="font-semibold text-sm tracking-wide">InfraSphere Network</span>
-              </div>
-            </div>
+            <Logo variant="light" className="mb-4" />
             <p className="text-steel-light text-sm leading-relaxed">
               Infrastructure intelligence for the physical world. Part of the TVK ecosystem.
             </p>

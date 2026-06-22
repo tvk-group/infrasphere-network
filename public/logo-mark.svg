@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="InfraSphere Network">
+  <rect width="48" height="48" fill="#0a1628"/>
+  <circle cx="24" cy="24" r="14" stroke="#1a6fd4" stroke-width="1.25" opacity="0.9"/>
+  <ellipse cx="24" cy="24" rx="14" ry="5" stroke="#1a6fd4" stroke-width="0.75" opacity="0.5"/>
+  <ellipse cx="24" cy="24" rx="5" ry="14" stroke="#1a6fd4" stroke-width="0.75" opacity="0.5"/>
+  <path d="M10 24h28" stroke="#1a6fd4" stroke-width="0.75" opacity="0.35"/>
+  <path d="M24 10v28" stroke="#1a6fd4" stroke-width="0.75" opacity="0.35"/>
+  <circle cx="24" cy="24" r="3" fill="#2d7a4f"/>
+  <path d="M24 21v6M21 24h6" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.9"/>
+</svg>

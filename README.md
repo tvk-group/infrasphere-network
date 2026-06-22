@@ -52,3 +52,29 @@ InfraSphere Network is the physical infrastructure layer of the TVK ecosystem:
 - **InfraSphere** — Infrastructure Layer
 
 Currently in research, development, concept formation and pilot preparation stage.
+
+## Contact form (email)
+
+The contact form sends inquiries via [Resend](https://resend.com). Copy `.env.example` to `.env.local` and set:
+
+| Variable | Description |
+|----------|-------------|
+| `RESEND_API_KEY` | API key from Resend dashboard |
+| `CONTACT_TO_EMAIL` | Inbox that receives form submissions |
+| `CONTACT_FROM_EMAIL` | Verified sender (use `onboarding@resend.dev` for testing) |
+
+```bash
+cp .env.example .env.local
+```
+
+For production, verify your domain in Resend and set `CONTACT_FROM_EMAIL` to e.g. `InfraSphere Network <noreply@infrasphere.network>`.
+
+## Brand assets
+
+| File | Use |
+|------|-----|
+| `public/logo-mark.svg` | Header/footer icon mark |
+| `public/logo.svg` | Full horizontal logo |
+| `src/app/icon.svg` | Browser favicon |
+| `src/app/apple-icon.svg` | Apple touch icon |
+| `public/og-image.svg` | Open Graph social preview |

@@ -1,26 +1,57 @@
 "use client";
 
 import { useState } from "react";
+import { INTEREST_AREAS } from "@/lib/contact";
 
-const interestAreas = [
-  "Energy Infrastructure",
-  "AI Infrastructure",
-  "Smart Infrastructure",
-  "Industrial Technology",
-  "Modular Systems",
-  "Strategic Partnership",
-  "General Inquiry",
-];
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: formData.get("name"),
+      company: formData.get("company"),
+      role: formData.get("role"),
+      country: formData.get("country"),
+      email: formData.get("email"),
+      interest: formData.get("interest"),
+      message: formData.get("message"),
+      website: formData.get("website"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setStatus("error");
+        setErrorMessage(result.error || "Failed to send your inquiry. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="p-8 bg-accent-green-light border border-accent-green/20">
         <h3 className="text-lg font-semibold text-navy mb-2">Thank you for your inquiry</h3>
@@ -33,6 +64,21 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
+
+      {status === "error" && (
+        <div className="p-4 bg-red-50 border border-red-200 text-sm text-red-800" role="alert">
+          {errorMessage}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-xs font-medium uppercase tracking-wider text-steel mb-2">
@@ -43,7 +89,8 @@ export function ContactForm() {
             id="name"
             name="name"
             required
-            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue"
+            disabled={status === "submitting"}
+            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue disabled:opacity-60"
           />
         </div>
         <div>
@@ -55,7 +102,8 @@ export function ContactForm() {
             id="company"
             name="company"
             required
-            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue"
+            disabled={status === "submitting"}
+            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue disabled:opacity-60"
           />
         </div>
         <div>
@@ -66,7 +114,8 @@ export function ContactForm() {
             type="text"
             id="role"
             name="role"
-            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue"
+            disabled={status === "submitting"}
+            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue disabled:opacity-60"
           />
         </div>
         <div>
@@ -77,7 +126,8 @@ export function ContactForm() {
             type="text"
             id="country"
             name="country"
-            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue"
+            disabled={status === "submitting"}
+            className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue disabled:opacity-60"
           />
         </div>
       </div>
@@ -90,7 +140,8 @@ export function ContactForm() {
           id="email"
           name="email"
           required
-          className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue"
+          disabled={status === "submitting"}
+          className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue disabled:opacity-60"
         />
       </div>
       <div>
@@ -101,10 +152,11 @@ export function ContactForm() {
           id="interest"
           name="interest"
           required
-          className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue"
+          disabled={status === "submitting"}
+          className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue disabled:opacity-60"
         >
           <option value="">Select an area</option>
-          {interestAreas.map((area) => (
+          {INTEREST_AREAS.map((area) => (
             <option key={area} value={area}>{area}</option>
           ))}
         </select>
@@ -118,14 +170,17 @@ export function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue resize-y"
+          minLength={10}
+          disabled={status === "submitting"}
+          className="w-full px-4 py-3 border border-silver-dark bg-white text-navy text-sm focus:outline-none focus:border-energy-blue resize-y disabled:opacity-60"
         />
       </div>
       <button
         type="submit"
-        className="w-full sm:w-auto px-8 py-3 bg-energy-blue text-white text-sm font-medium hover:bg-[#1559b8] transition-colors"
+        disabled={status === "submitting"}
+        className="w-full sm:w-auto px-8 py-3 bg-energy-blue text-white text-sm font-medium hover:bg-[#1559b8] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        Discuss Infrastructure Opportunities
+        {status === "submitting" ? "Sending…" : "Discuss Infrastructure Opportunities"}
       </button>
     </form>
   );

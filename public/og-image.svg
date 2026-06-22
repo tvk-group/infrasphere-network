@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0a1628"/>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#1a6fd4" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="900" cy="315" r="120" stroke="#1a6fd4" stroke-width="2" opacity="0.4"/>
+  <ellipse cx="900" cy="315" rx="120" ry="42" stroke="#1a6fd4" stroke-width="1.5" opacity="0.25"/>
+  <ellipse cx="900" cy="315" rx="42" ry="120" stroke="#1a6fd4" stroke-width="1.5" opacity="0.25"/>
+  <circle cx="900" cy="315" r="24" fill="#2d7a4f" opacity="0.8"/>
+  <rect x="80" y="80" width="72" height="72" fill="#0a1628" stroke="#1a6fd4" stroke-width="1.5"/>
+  <circle cx="116" cy="116" r="22" stroke="#1a6fd4" stroke-width="1.25"/>
+  <circle cx="116" cy="116" r="5" fill="#2d7a4f"/>
+  <text x="180" y="118" font-family="system-ui, sans-serif" font-size="36" font-weight="600" fill="#ffffff">InfraSphere Network</text>
+  <text x="80" y="220" font-family="system-ui, sans-serif" font-size="28" font-weight="400" fill="#8b95a5">Infrastructure Intelligence for the Physical World</text>
+  <text x="80" y="270" font-family="system-ui, sans-serif" font-size="16" fill="#5a6578">Energy · AI Infrastructure · Industrial Technology · Modular Systems</text>
+</svg>
