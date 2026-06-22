@@ -53,6 +53,16 @@ InfraSphere Network is the physical infrastructure layer of the TVK ecosystem:
 
 Currently in research, development, concept formation and pilot preparation stage.
 
+## Internationalization (25 languages)
+
+All pages are available in 25 locales with manual translations (no machine translation):
+
+`en` `tr` `de` `ar` `fr` `es` `it` `pt` `nl` `ru` `zh` `ja` `ko` `hi` `pl` `sv` `no` `da` `fi` `cs` `el` `he` `id` `ms` `uk`
+
+URLs use locale prefixes: `/en`, `/tr/about`, `/de/contact`, etc. Root `/` redirects to `/en`.
+
+Translation files: `src/i18n/messages/{locale}.ts`
+
 ## Contact form (email)
 
 The contact form sends inquiries via [Resend](https://resend.com). Copy `.env.example` to `.env.local` and set:

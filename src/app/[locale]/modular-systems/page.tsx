@@ -1,0 +1,49 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { PageHero } from "@/components/PageHero";
+import { StageNotice } from "@/components/StageNotice";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { isLocale, type Locale } from "@/i18n/config";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const dict = await getDictionary(locale);
+  return { title: dict.modularSystems.metaTitle, description: dict.modularSystems.metaDescription };
+}
+
+export default async function ModularSystemsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: localeParam } = await params;
+  if (!isLocale(localeParam)) notFound();
+  const locale = localeParam as Locale;
+  const dict = await getDictionary(locale);
+  const systems = Object.values(dict.modularSystems.systems);
+
+  return (
+    <>
+      <PageHero
+        eyebrow={dict.modularSystems.eyebrow}
+        title={dict.modularSystems.title}
+        subtitle={dict.modularSystems.subtitle}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <StageNotice dict={dict} />
+      </div>
+
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-steel leading-relaxed max-w-3xl mb-12">{dict.modularSystems.intro}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {systems.map((system) => (
+              <div key={system.title} className="p-8 bg-white border border-silver-dark">
+                <h3 className="text-lg font-semibold text-navy mb-3">{system.title}</h3>
+                <p className="text-sm text-steel leading-relaxed">{system.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

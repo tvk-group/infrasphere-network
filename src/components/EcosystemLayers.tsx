@@ -1,9 +1,12 @@
-import { ecosystemLayers } from "@/lib/navigation";
+import type { Dictionary } from "@/i18n/get-dictionary";
+import { getEcosystemLayers } from "@/lib/navigation-i18n";
 
-export function EcosystemLayers() {
+export function EcosystemLayers({ dict }: { dict: Dictionary }) {
+  const layers = getEcosystemLayers(dict);
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {ecosystemLayers.map((layer) => (
+      {layers.map((layer) => (
         <div
           key={layer.name}
           className={`p-6 border ${
