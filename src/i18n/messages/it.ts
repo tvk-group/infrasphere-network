@@ -635,6 +635,39 @@ export const it = {
       },
     },
   },
+  seo: {
+    legalDisclaimer:
+      "InfraSphere Network si trova attualmente nelle fasi di ricerca, sviluppo, formazione dei concetti e preparazione pilota. Le informazioni su questa piattaforma rappresentano ricerche in corso, concetti futuri e pianificazione strategica. Non vengono formulate affermazioni riguardo a deployment completati, clienti paganti, ricavi operativi o contratti governativi, salvo espressamente indicato.",
+    faqTitle: "Domande frequenti",
+    relatedLinksTitle: "Aree infrastrutturali correlate",
+    faq: [
+      {
+        question: "Cos'è InfraSphere Network?",
+        answer:
+          "InfraSphere Network è lo strato infrastrutturale fisico dell'ecosistema TVK — in fase di sviluppo per connettere sistemi energetici, infrastruttura AI, tecnologia industriale e infrastruttura modulare sotto un'unica visione strategica di piattaforma.",
+      },
+      {
+        question: "In quale fase si trova attualmente InfraSphere?",
+        answer:
+          "InfraSphere Network è nella fase di ricerca, sviluppo, formazione dei concetti, architettura strategica e preparazione pilota. La piattaforma è progettata per future iniziative infrastrutturali, non per deployment operativi.",
+      },
+      {
+        question: "Quali sono le aree di focus principali?",
+        answer:
+          "Le aree di focus principali includono infrastruttura energetica, infrastruttura AI, infrastruttura intelligente, tecnologia industriale, sistemi modulari e concetti di infrastruttura per impianti di estrazione.",
+      },
+      {
+        question: "Come possono le organizzazioni collaborare con InfraSphere?",
+        answer:
+          "InfraSphere cerca partnership strategiche a lungo termine con aziende energetiche, operatori infrastrutturali, gruppi industriali, studi di ingegneria, operatori di data center e investitori strategici. Utilizzare il modulo di contatto per discutere le opportunità infrastrutturali.",
+      },
+      {
+        question: "InfraSphere è un progetto di criptovaluta o token?",
+        answer:
+          "No. InfraSphere Network è una piattaforma di infrastruttura, sistemi energetici e tecnologia industriale. Non è un progetto token, una piattaforma di criptovalute né un sito di trading.",
+      },
+    ],
+  },
 } as const;
 
 export default it;

@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { StageNotice } from "@/components/StageNotice";
+import { SubPageSeo, SubPageFooter } from "@/components/seo/SubPageSeo";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, type Locale } from "@/i18n/config";
+import { generatePageMetadata } from "@/lib/seo/page-metadata";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  const dict = await getDictionary(locale);
-  return { title: dict.infrastructure.metaTitle, description: dict.infrastructure.metaDescription };
+  return generatePageMetadata(locale, "infrastructure");
 }
 
 export default async function InfrastructurePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -21,6 +20,7 @@ export default async function InfrastructurePage({ params }: { params: Promise<{
 
   return (
     <>
+      <SubPageSeo locale={locale} dict={dict} pathKey="infrastructure" />
       <PageHero
         eyebrow={dict.infrastructure.eyebrow}
         title={dict.infrastructure.title}
@@ -47,6 +47,7 @@ export default async function InfrastructurePage({ params }: { params: Promise<{
           </div>
         </div>
       </section>
+      <SubPageFooter locale={locale} dict={dict} pathKey="infrastructure" />
     </>
   );
 }

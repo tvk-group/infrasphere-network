@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { EcosystemLayers } from "@/components/EcosystemLayers";
@@ -8,6 +7,10 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getFocusAreas } from "@/lib/navigation-i18n";
 import { localizedPath } from "@/i18n/paths";
+import { generatePageMetadata } from "@/lib/seo/page-metadata";
+import { PageSeoSchemas } from "@/components/seo/PageSeoSchemas";
+import { InternalLinks } from "@/components/seo/InternalLinks";
+import { FaqSection } from "@/components/seo/FaqSection";
 
 function HeroVisual({ labels }: { labels: { power: string; compute: string; monitor: string } }) {
   return (
@@ -60,11 +63,9 @@ function HeroVisual({ labels }: { labels: { power: string; compute: string; moni
   );
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  const dict = await getDictionary(locale);
-  return { title: dict.meta.title, description: dict.meta.description };
+  return generatePageMetadata(locale, "home");
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -82,6 +83,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
+      <PageSeoSchemas locale={locale} dict={dict} pathKey="home" includeFaq />
       <section className="bg-navy text-white">
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -159,6 +161,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
       </section>
+
+      <FaqSection
+        title={dict.seo.faqTitle}
+        items={dict.seo.faq.map((item) => ({ question: item.question, answer: item.answer }))}
+      />
+      <InternalLinks locale={locale} dict={dict} pathKey="home" />
     </>
   );
 }

@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
+import { SubPageSeo, SubPageFooter } from "@/components/seo/SubPageSeo";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, type Locale } from "@/i18n/config";
+import { generatePageMetadata } from "@/lib/seo/page-metadata";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  const dict = await getDictionary(locale);
-  return { title: dict.insights.metaTitle, description: dict.insights.metaDescription };
+  return generatePageMetadata(locale, "insights");
 }
 
 export default async function InsightsPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -21,6 +20,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
 
   return (
     <>
+      <SubPageSeo locale={locale} dict={dict} pathKey="insights" includeArticles />
       <PageHero eyebrow={dict.insights.eyebrow} title={dict.insights.title} subtitle={dict.insights.subtitle} />
 
       <section className="py-8 border-b border-silver-dark">
@@ -61,6 +61,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
           </div>
         </div>
       </section>
+      <SubPageFooter locale={locale} dict={dict} pathKey="insights" />
     </>
   );
 }

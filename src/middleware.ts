@@ -8,6 +8,8 @@ export function middleware(request: NextRequest) {
   if (
     pathname.startsWith("/api") ||
     pathname.startsWith("/_next") ||
+    pathname.startsWith("/sitemaps") ||
+    pathname === "/sitemap-index.xml" ||
     pathname.startsWith("/logo") ||
     pathname.startsWith("/og-image") ||
     pathname.includes(".")
@@ -23,12 +25,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const locale = defaultLocale;
   const url = request.nextUrl.clone();
-  url.pathname = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
+  url.pathname = pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
   return NextResponse.redirect(url);
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|sitemaps|sitemap-index\\.xml|.*\\..*).*)"],
 };

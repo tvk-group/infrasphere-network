@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
+import { SubPageSeo, SubPageFooter } from "@/components/seo/SubPageSeo";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, type Locale } from "@/i18n/config";
+import { generatePageMetadata } from "@/lib/seo/page-metadata";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  const dict = await getDictionary(locale);
-  return { title: dict.contact.metaTitle, description: dict.contact.metaDescription };
+  return generatePageMetadata(locale, "contact");
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -20,6 +19,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   return (
     <>
+      <SubPageSeo locale={locale} dict={dict} pathKey="contact" />
       <PageHero eyebrow={dict.contact.eyebrow} title={dict.contact.title} subtitle={dict.contact.subtitle} />
 
       <section className="py-16">
@@ -49,6 +49,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           </div>
         </div>
       </section>
+      <SubPageFooter locale={locale} dict={dict} pathKey="contact" />
     </>
   );
 }

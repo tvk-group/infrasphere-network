@@ -63,6 +63,18 @@ URLs use locale prefixes: `/en`, `/tr/about`, `/de/contact`, etc. Root `/` redir
 
 Translation files: `src/i18n/messages/{locale}.ts`
 
+## Enterprise SEO
+
+- **Per-page metadata**: unique title, description, canonical URL, Open Graph, Twitter cards
+- **hreflang**: all 25 locales + `x-default` on every page
+- **JSON-LD**: Organization, WebSite, BreadcrumbList, Article (insights), FAQPage (home)
+- **Sitemaps**: `/sitemap-index.xml` → `/sitemaps/{locale}.xml` with hreflang annotations
+- **robots.txt**: Google, Bing, Yandex, Baidu rules via `src/app/robots.ts`
+- **Internal linking**: automatic related-page links on every route
+- **Legal disclaimer**: localized footer disclaimer on all locales
+
+SEO utilities: `src/lib/seo/`
+
 ## Contact form (email)
 
 The contact form sends inquiries via [Resend](https://resend.com). Copy `.env.example` to `.env.local` and set:

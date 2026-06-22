@@ -62,11 +62,14 @@ export function Footer({ locale, dict }: FooterProps) {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-4">
-          <p className="text-xs text-steel-light">
-            {dict.footer.copyright.replace("{year}", String(new Date().getFullYear()))}
-          </p>
-          <p className="text-xs text-steel-light">{dict.footer.domain}</p>
+        <div className="mt-12 pt-8 border-t border-white/10 space-y-4">
+          <p className="text-xs text-steel-light leading-relaxed max-w-4xl">{dict.seo.legalDisclaimer}</p>
+          <div className="flex flex-col sm:flex-row justify-between gap-4">
+            <p className="text-xs text-steel-light">
+              {dict.footer.copyright.replace("{year}", String(new Date().getFullYear()))}
+            </p>
+            <p className="text-xs text-steel-light">{dict.footer.domain}</p>
+          </div>
         </div>
       </div>
     </footer>

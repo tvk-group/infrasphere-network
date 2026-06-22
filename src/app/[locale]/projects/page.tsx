@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { StageNotice } from "@/components/StageNotice";
 import { ProjectCard } from "@/components/ProjectCard";
+import { SubPageSeo, SubPageFooter } from "@/components/seo/SubPageSeo";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, type Locale } from "@/i18n/config";
+import { generatePageMetadata } from "@/lib/seo/page-metadata";
 
 type StageKey = "rd" | "concept" | "pilotPreparation";
 
@@ -20,11 +21,9 @@ const projectStageKeys: Record<string, StageKey> = {
   criticalInfrastructureTechnology: "rd",
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  const dict = await getDictionary(locale);
-  return { title: dict.projects.metaTitle, description: dict.projects.metaDescription };
+  return generatePageMetadata(locale, "projects");
 }
 
 export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -36,6 +35,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
   return (
     <>
+      <SubPageSeo locale={locale} dict={dict} pathKey="projects" />
       <PageHero eyebrow={dict.projects.eyebrow} title={dict.projects.title} subtitle={dict.projects.subtitle} />
 
       <div className="site-container py-8">
@@ -66,6 +66,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
           ))}
         </div>
       </section>
+      <SubPageFooter locale={locale} dict={dict} pathKey="projects" />
     </>
   );
 }
