@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import Link from "next/link";
 import { navItems } from "@/lib/navigation";
+import { Logo } from "@/components/Logo";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -11,15 +12,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-silver-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="w-9 h-9 bg-navy flex items-center justify-center">
-              <span className="text-white text-xs font-bold tracking-wider">IS</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-navy font-semibold text-sm tracking-wide">InfraSphere</span>
-              <span className="text-steel text-xs block -mt-0.5">Network</span>
-            </div>
-          </Link>
+          <Logo />
 
           <nav className="hidden xl:flex items-center gap-1">
             {navItems.map((item) => (

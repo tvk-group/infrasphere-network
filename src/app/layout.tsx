@@ -11,6 +11,7 @@ const ibmPlex = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://infrasphere.network"),
   title: "InfraSphere Network | Infrastructure Intelligence for the Physical World",
   description:
     "InfraSphere Network is the infrastructure, energy systems, AI infrastructure and industrial technology platform of the TVK ecosystem, currently in research, development and pilot preparation stage.",
@@ -32,6 +33,18 @@ export const metadata: Metadata = {
     url: "https://infrasphere.network",
     siteName: "InfraSphere Network",
     type: "website",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "InfraSphere Network — Infrastructure Intelligence for the Physical World",
+      },
+    ],
+  },
+  icons: {
+    icon: [{ url: "/logo-mark.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/logo-mark.svg", type: "image/svg+xml" }],
   },
 };
 
