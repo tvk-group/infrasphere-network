@@ -1,5 +1,6 @@
 import type { Locale } from "./config";
 import { en } from "./messages/en";
+import { getAppOverlay } from "./app-overlays";
 
 export type Dictionary = typeof en;
 
@@ -35,7 +36,14 @@ const cache: Partial<Record<Locale, Dictionary>> = { en };
 
 export async function getDictionary(locale: Locale): Promise<Dictionary> {
   if (cache[locale]) return cache[locale] as Dictionary;
-  const dict = await loaders[locale]();
+  const base = await loaders[locale]();
+  const overlay = getAppOverlay(locale);
+  const dict = {
+    ...base,
+    nav: { ...base.nav, app: overlay.navApp },
+    home: { ...base.home, getApp: overlay.getApp },
+    app: overlay.app,
+  } as Dictionary;
   cache[locale] = dict;
   return dict;
 }

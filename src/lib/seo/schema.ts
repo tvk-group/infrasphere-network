@@ -32,6 +32,16 @@ export function getPageSeo(
       return { title: dict.insights.metaTitle, description: dict.insights.metaDescription };
     case "contact":
       return { title: dict.contact.metaTitle, description: dict.contact.metaDescription };
+    case "app":
+      return { title: dict.app.metaTitle, description: dict.app.metaDescription };
+    case "appApply":
+      return { title: dict.app.apply.metaTitle, description: dict.app.apply.metaDescription };
+    case "appProjects":
+      return { title: dict.app.projects.metaTitle, description: dict.app.projects.metaDescription };
+    case "appContact":
+      return { title: dict.app.contact.metaTitle, description: dict.app.contact.metaDescription };
+    case "appInstall":
+      return { title: dict.app.install.metaTitle, description: dict.app.install.metaDescription };
   }
 }
 

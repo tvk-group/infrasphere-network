@@ -5,6 +5,7 @@ import Link from "next/link";
 import { LogoClient } from "@/components/LogoClient";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useDictionary } from "@/i18n/DictionaryProvider";
+import { localizedPath } from "@/i18n/paths";
 import { getNavItems } from "@/lib/navigation-i18n";
 
 export function Header() {
@@ -35,7 +36,13 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center shrink-0">
+          <div className="hidden lg:flex items-center shrink-0 gap-2">
+            <Link
+              href={localizedPath(locale, "app")}
+              className="px-2 py-1 text-[10px] xl:text-xs font-semibold uppercase tracking-wider text-energy-blue border border-energy-blue/30 hover:bg-energy-blue-light transition-colors"
+            >
+              {dict.nav.app}
+            </Link>
             <LanguageSwitcher />
           </div>
 
@@ -73,6 +80,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href={localizedPath(locale, "app")}
+              onClick={() => setOpen(false)}
+              className="px-3 py-2.5 text-sm font-semibold text-energy-blue hover:bg-energy-blue-light transition-colors"
+            >
+              {dict.nav.app}
+            </Link>
           </nav>
         </div>
       )}

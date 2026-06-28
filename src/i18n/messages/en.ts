@@ -32,6 +32,7 @@ export const en = {
     strategicPartnerships: "Strategic Partnerships",
     insights: "Insights",
     contact: "Contact",
+    app: "Partner Portal",
   },
   common: {
     contact: "Contact",
@@ -153,6 +154,13 @@ export const en = {
     partnershipsTitle: "Strategic Partnerships",
     partnershipsBody:
       "InfraSphere Network seeks collaboration with energy companies, infrastructure operators, industrial groups, engineering firms, technology providers and strategic investors.",
+    getApp: {
+      eyebrow: "Partner Portal",
+      title: "Get the InfraSphere App",
+      body: "Access the Partner Portal on any device — submit applications, track pipeline concepts and connect with our infrastructure team.",
+      cta: "Open Partner Portal",
+      install: "Install on Device",
+    },
   },
   about: {
     metaTitle: "About | InfraSphere Network",
@@ -631,6 +639,133 @@ export const en = {
         category: "Sustainability",
         excerpt:
           "Approaches to integrating sustainability principles into infrastructure planning across energy, industrial and modular systems.",
+      },
+    },
+  },
+  app: {
+    metaTitle: "Partner Portal | InfraSphere Network",
+    metaDescription:
+      "InfraSphere Partner Portal — partnership applications, project pipeline visibility and infrastructure collaboration tools for strategic partners.",
+    brand: "InfraSphere",
+    portal: "Partner Portal",
+    tagline: "Infrastructure collaboration for strategic partners.",
+    openWebsite: "Open Website",
+    stageBadge: "Early Access · Pilot Preparation",
+    nav: {
+      dashboard: "Dashboard",
+      apply: "Apply",
+      projects: "Projects",
+      contact: "Contact",
+      install: "Install",
+    },
+    dashboard: {
+      welcome: "Welcome to the Partner Portal",
+      subtitle:
+        "Your hub for infrastructure partnership coordination, project pipeline visibility and strategic collaboration with InfraSphere Network.",
+      quickActions: "Quick Actions",
+      stats: {
+        focusAreas: "Focus Areas",
+        pipeline: "Pipeline Concepts",
+        stage: "Development Stage",
+        stageValue: "Pilot Prep",
+      },
+      cards: {
+        apply: {
+          title: "Partnership Application",
+          description: "Submit a strategic partnership or pilot collaboration inquiry.",
+          cta: "Start Application",
+        },
+        projects: {
+          title: "Project Pipeline",
+          description: "View infrastructure concepts and development areas in the current pipeline.",
+          cta: "View Pipeline",
+        },
+        contact: {
+          title: "Partner Contact",
+          description: "Reach the InfraSphere team for infrastructure collaboration discussions.",
+          cta: "Contact Team",
+        },
+        install: {
+          title: "Install the App",
+          description: "Add the Partner Portal to your home screen for quick access.",
+          cta: "Install Guide",
+        },
+      },
+      notice:
+        "This portal is in early access. Features represent research, development and pilot preparation activities — not operational deployments.",
+      ecosystem: "Part of the TVK Ecosystem infrastructure layer.",
+    },
+    apply: {
+      metaTitle: "Partnership Application | InfraSphere Partner Portal",
+      metaDescription:
+        "Submit a strategic infrastructure partnership or pilot collaboration application to InfraSphere Network.",
+      title: "Partnership Application",
+      subtitle:
+        "Share your organization details and infrastructure collaboration interests with the InfraSphere team.",
+      organizationType: "Organization Type",
+      selectType: "Select organization type",
+      orgTypes: {
+        energy: "Energy Company",
+        operator: "Infrastructure Operator",
+        industrial: "Industrial Group",
+        engineering: "Engineering Firm",
+        datacenter: "Data Center Operator",
+        investor: "Strategic Investor",
+        other: "Other",
+      },
+      successTitle: "Application received",
+      successBody:
+        "Thank you. Your partnership application has been submitted and will be reviewed by the InfraSphere team.",
+    },
+    projects: {
+      metaTitle: "Project Pipeline | InfraSphere Partner Portal",
+      metaDescription:
+        "Infrastructure research initiatives, concept projects and pilot preparation areas in the InfraSphere development pipeline.",
+      title: "Project Pipeline",
+      subtitle:
+        "Infrastructure development areas across research, concept formation and pilot preparation — no completed deployments claimed.",
+      stages: {
+        research: "Research",
+        concept: "Concept",
+        pilot: "Pilot Prep",
+      },
+    },
+    contact: {
+      metaTitle: "Partner Contact | InfraSphere Partner Portal",
+      metaDescription: "Contact the InfraSphere team for infrastructure partnership and collaboration discussions.",
+      title: "Partner Contact",
+      subtitle: "Reach the InfraSphere team for infrastructure collaboration and strategic partnership discussions.",
+    },
+    install: {
+      metaTitle: "Install App | InfraSphere Partner Portal",
+      metaDescription: "Install the InfraSphere Partner Portal as a progressive web app on your device.",
+      title: "Install the Partner Portal",
+      subtitle: "Add InfraSphere to your device for quick access to partnership tools.",
+      ios: {
+        title: "iPhone & iPad",
+        steps: [
+          "Open this page in Safari.",
+          "Tap the Share button at the bottom of the screen.",
+          "Select Add to Home Screen.",
+          "Tap Add to confirm.",
+        ],
+      },
+      android: {
+        title: "Android",
+        steps: [
+          "Open this page in Chrome.",
+          "Tap the menu (three dots) in the top right.",
+          "Select Install app or Add to Home screen.",
+          "Confirm the installation.",
+        ],
+      },
+      desktop: {
+        title: "Desktop",
+        steps: [
+          "Open this page in Chrome, Edge or another supported browser.",
+          "Look for the install icon in the address bar.",
+          "Click Install to add the Partner Portal as an app.",
+        ],
       },
     },
   },

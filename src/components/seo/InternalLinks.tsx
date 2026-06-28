@@ -10,7 +10,7 @@ interface InternalLinksProps {
   pathKey: PathKey;
 }
 
-const navLabelKeys: Record<PathKey, keyof Dictionary["nav"]> = {
+const navLabelKeys: Record<PathKey, keyof Dictionary["nav"] | "app"> = {
   home: "home",
   about: "about",
   infrastructure: "infrastructure",
@@ -22,7 +22,21 @@ const navLabelKeys: Record<PathKey, keyof Dictionary["nav"]> = {
   strategicPartnerships: "strategicPartnerships",
   insights: "insights",
   contact: "contact",
+  app: "app",
+  appApply: "app",
+  appProjects: "app",
+  appContact: "app",
+  appInstall: "app",
 };
+
+function linkLabel(dict: Dictionary, key: PathKey): string {
+  if (key === "app") return dict.app.nav.dashboard;
+  if (key === "appApply") return dict.app.nav.apply;
+  if (key === "appProjects") return dict.app.nav.projects;
+  if (key === "appContact") return dict.app.nav.contact;
+  if (key === "appInstall") return dict.app.nav.install;
+  return dict.nav[navLabelKeys[key] as keyof Dictionary["nav"]];
+}
 
 export function InternalLinks({ locale, dict, pathKey }: InternalLinksProps) {
   const related = relatedPagesMap[pathKey];
@@ -42,7 +56,7 @@ export function InternalLinks({ locale, dict, pathKey }: InternalLinksProps) {
               className="p-5 bg-white border border-silver-dark hover:border-energy-blue/40 transition-colors group"
             >
               <span className="text-sm font-medium text-navy group-hover:text-energy-blue transition-colors">
-                {dict.nav[navLabelKeys[key]]}
+                {linkLabel(dict, key)}
               </span>
             </Link>
           ))}

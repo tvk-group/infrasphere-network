@@ -39,6 +39,45 @@ html {
   scroll-behavior: smooth;
 }
 
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.app-contact-form input,
+.app-contact-form select,
+.app-contact-form textarea {
+  background: rgb(255 255 255 / 0.05);
+  border-color: rgb(255 255 255 / 0.1);
+  color: white;
+}
+
+.app-contact-form label {
+  color: rgb(255 255 255 / 0.4);
+}
+
+.app-contact-form .bg-accent-green-light {
+  background: rgb(45 122 79 / 0.1);
+  border-color: rgb(45 122 79 / 0.3);
+}
+
+.app-contact-form .text-navy {
+  color: white;
+}
+
+.app-contact-form .text-steel {
+  color: rgb(255 255 255 / 0.6);
+}
+
+.app-contact-form .bg-red-50 {
+  background: rgb(239 68 68 / 0.1);
+  border-color: rgb(239 68 68 / 0.3);
+  color: rgb(252 165 165);
+}
+
+.app-contact-form button[type="submit"] {
+  width: 100%;
+}
+
 @utility site-container {
   width: 100%;
   max-width: 100rem;
