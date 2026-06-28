@@ -4,6 +4,7 @@ import { defaultLocale, isLocale, locales } from "@/i18n/config";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const host = request.headers.get("host") || "";
 
   if (
     pathname.startsWith("/api") ||
@@ -12,9 +13,32 @@ export function middleware(request: NextRequest) {
     pathname === "/sitemap-index.xml" ||
     pathname.startsWith("/logo") ||
     pathname.startsWith("/og-image") ||
+    pathname === "/sw.js" ||
+    pathname === "/manifest.webmanifest" ||
     pathname.includes(".")
   ) {
     return NextResponse.next();
+  }
+
+  if (host.startsWith("app.")) {
+    const appPath = pathname === "/" ? "/app" : pathname.startsWith("/app") ? pathname : `/app${pathname}`;
+    const localeMatch = locales.find(
+      (locale) => appPath === `/${locale}/app` || appPath.startsWith(`/${locale}/app/`)
+    );
+
+    if (localeMatch) {
+      return NextResponse.next();
+    }
+
+    const url = request.nextUrl.clone();
+    if (appPath === "/app" || appPath === "/app/") {
+      url.pathname = `/${defaultLocale}/app`;
+    } else if (appPath.startsWith("/app/")) {
+      url.pathname = `/${defaultLocale}${appPath}`;
+    } else {
+      url.pathname = `/${defaultLocale}/app${appPath}`;
+    }
+    return NextResponse.rewrite(url);
   }
 
   const pathnameLocale = locales.find(

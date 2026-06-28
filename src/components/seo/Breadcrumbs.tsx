@@ -51,6 +51,11 @@ export function breadcrumbItems(
     strategicPartnerships: dict.nav.strategicPartnerships,
     insights: dict.nav.insights,
     contact: dict.nav.contact,
+    app: dict.app.nav.dashboard,
+    appApply: dict.app.nav.apply,
+    appProjects: dict.app.nav.projects,
+    appContact: dict.app.nav.contact,
+    appInstall: dict.app.nav.install,
   };
 
   return [home, { pathKey, label: labels[pathKey] }];

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IBM_Plex_Sans } from "next/font/google";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { DictionaryProvider } from "@/i18n/DictionaryProvider";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, locales, rtlLocales, type Locale } from "@/i18n/config";
 import { htmlLangCodes } from "@/lib/seo/hreflang";
@@ -21,6 +18,12 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "InfraSphere",
+  },
 };
 
 export default async function LocaleLayout({
@@ -34,18 +37,15 @@ export default async function LocaleLayout({
   if (!isLocale(localeParam)) notFound();
 
   const locale = localeParam as Locale;
-  const dict = await getDictionary(locale);
   const dir = rtlLocales.includes(locale) ? "rtl" : "ltr";
 
   return (
     <html lang={htmlLangCodes[locale]} dir={dir} className={`${ibmPlex.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">
-        <DictionaryProvider locale={locale} dict={dict}>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer locale={locale} dict={dict} />
-        </DictionaryProvider>
-      </body>
+      <head>
+        <meta name="theme-color" content="#0a1628" />
+        <link rel="apple-touch-icon" href="/logo-mark.svg" />
+      </head>
+      <body className="min-h-full flex flex-col antialiased">{children}</body>
     </html>
   );
 }

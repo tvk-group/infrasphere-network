@@ -162,6 +162,48 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      <section className="py-16 lg:py-24 bg-navy text-white">
+        <div className="site-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-energy-blue text-xs font-semibold uppercase tracking-widest mb-4">{dict.home.getApp.eyebrow}</p>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">{dict.home.getApp.title}</h2>
+              <p className="mt-4 text-white/70 leading-relaxed">{dict.home.getApp.body}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button href={localizedPath(locale, "app")}>{dict.home.getApp.cta}</Button>
+                <Button href={localizedPath(locale, "appInstall")} variant="outline" className="!text-white !border-white/30 hover:!text-energy-blue hover:!border-energy-blue">
+                  {dict.home.getApp.install}
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-64 h-[480px] bg-navy-light border border-white/10 rounded-3xl p-4 shadow-2xl">
+                <div className="h-full flex flex-col">
+                  <div className="flex items-center justify-between mb-4 px-1">
+                    <span className="text-xs font-semibold">{dict.app.brand}</span>
+                    <span className="text-[9px] text-energy-blue uppercase tracking-widest">{dict.app.portal}</span>
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="p-3 bg-white/5 border border-white/10">
+                        <div className="h-1.5 w-12 bg-energy-blue/60 mb-2" />
+                        <div className="h-1 w-full bg-white/10" />
+                        <div className="h-1 w-3/4 bg-white/10 mt-1" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex justify-around pt-3 border-t border-white/10">
+                    {["Dashboard", "Apply", "Projects"].map((label) => (
+                      <div key={label} className="w-8 h-1 bg-white/20 rounded" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FaqSection
         title={dict.seo.faqTitle}
         items={dict.seo.faq.map((item) => ({ question: item.question, answer: item.answer }))}

@@ -12,6 +12,11 @@ export const pathKeys = [
   "strategicPartnerships",
   "insights",
   "contact",
+  "app",
+  "appApply",
+  "appProjects",
+  "appContact",
+  "appInstall",
 ] as const;
 
 export type PathKey = (typeof pathKeys)[number];
@@ -28,6 +33,11 @@ export const pathSlugs: Record<PathKey, string> = {
   strategicPartnerships: "strategic-partnerships",
   insights: "insights",
   contact: "contact",
+  app: "app",
+  appApply: "app/apply",
+  appProjects: "app/projects",
+  appContact: "app/contact",
+  appInstall: "app/install",
 };
 
 export function localizedPath(locale: Locale, key: PathKey): string {
