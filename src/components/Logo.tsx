@@ -18,7 +18,7 @@ interface LogoProps {
 
 function resolveVariant(props: LogoProps): LogoVariant {
   if (props.logoVariant) return props.logoVariant;
-  return props.variant === "light" ? "full-dark" : "full-light";
+  return props.variant === "light" ? "full-dark-horizontal" : "full-light";
 }
 
 export function Logo({

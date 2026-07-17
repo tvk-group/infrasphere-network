@@ -9,18 +9,18 @@ import { BRAND_LOGOS, LOGO_DIMENSIONS } from "@/lib/brand/logos";
 
 export function AppHeader() {
   const { locale, dict } = useDictionary();
-  const dims = LOGO_DIMENSIONS["full-dark"];
+  const dims = LOGO_DIMENSIONS["full-dark-horizontal"];
 
   return (
     <header className="sticky top-0 z-50 bg-navy text-white border-b border-white/20">
       <div className="max-w-lg mx-auto px-4 flex items-center justify-between min-h-14 gap-3">
         <Link href={localizedPath(locale, "app")} className="inline-flex items-center shrink-0 min-w-0">
           <Image
-            src={BRAND_LOGOS.fullDark}
+            src={BRAND_LOGOS.fullDarkHorizontal}
             alt={`${dict.logo.brand} ${dict.app.portal}`}
             width={dims.width}
             height={dims.height}
-            className="h-9 w-auto max-w-[200px] object-contain object-left"
+            className={dims.className}
             priority
           />
         </Link>
