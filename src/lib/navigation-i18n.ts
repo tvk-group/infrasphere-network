@@ -41,11 +41,4 @@ export function getFocusAreas(locale: Locale, dict: Dictionary) {
   }));
 }
 
-export function getEcosystemLayers(dict: Dictionary) {
-  return [
-    { name: dict.ecosystem.tvkGroup, role: dict.ecosystem.holdingLayer },
-    { name: dict.ecosystem.sovra, role: dict.ecosystem.intelligenceLayer },
-    { name: dict.ecosystem.enteleKron, role: dict.ecosystem.trustLayer },
-    { name: dict.ecosystem.infraSphere, role: dict.ecosystem.infrastructureLayer, highlight: true },
-  ];
-}
+export { getEcosystemFooterItems, getEcosystemLayers } from "@/lib/ecosystem-links";

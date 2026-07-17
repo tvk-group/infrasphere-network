@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/config";
-import { getNavItems } from "@/lib/navigation-i18n";
+import { getEcosystemFooterItems, getNavItems } from "@/lib/navigation-i18n";
 
 interface FooterProps {
   locale: Locale;
@@ -15,6 +15,7 @@ export function Footer({ locale, dict }: FooterProps) {
 
   const platformLinks = mainLinks.filter((_, i) => i < 6);
   const resourceLinks = mainLinks.filter((_, i) => i >= 6);
+  const ecosystemLinks = getEcosystemFooterItems(dict, locale);
 
   return (
     <footer className="bg-navy text-white mt-auto">
@@ -53,11 +54,32 @@ export function Footer({ locale, dict }: FooterProps) {
 
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-steel-light mb-4">{dict.footer.ecosystem}</h3>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>{dict.ecosystem.tvkGroup} — {dict.ecosystem.holdingLayer}</li>
-              <li>{dict.ecosystem.sovra} — {dict.ecosystem.intelligenceLayer}</li>
-              <li>{dict.ecosystem.enteleKron} — {dict.ecosystem.trustLayer}</li>
-              <li className="text-white">{dict.ecosystem.infraSphere} — {dict.ecosystem.infrastructureLayer}</li>
+            <ul className="space-y-2">
+              {ecosystemLinks.map((item) => (
+                <li key={item.href}>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-sm transition-colors hover:text-white ${
+                        item.highlight ? "text-white" : "text-white/70"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`text-sm transition-colors hover:text-white ${
+                        item.highlight ? "text-white" : "text-white/70"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

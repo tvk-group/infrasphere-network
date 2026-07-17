@@ -114,7 +114,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <h2 className="text-2xl sm:text-3xl font-semibold text-navy tracking-tight">{dict.home.ecosystemTitle}</h2>
             <p className="mt-4 text-steel leading-relaxed">{dict.home.ecosystemBody}</p>
           </div>
-          <EcosystemLayers dict={dict} />
+          <EcosystemLayers dict={dict} locale={locale} />
         </div>
       </section>
 
