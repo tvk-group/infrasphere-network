@@ -21,7 +21,7 @@ export function Footer({ locale, dict }: FooterProps) {
       <div className="site-container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <Logo variant="light" className="mb-4" locale={locale} brand={dict.logo.brand} network={dict.logo.network} />
+            <Logo logoVariant="full-dark" className="mb-4" locale={locale} brand={dict.logo.brand} network={dict.logo.network} />
             <p className="text-steel-light text-sm leading-relaxed">{dict.footer.tagline}</p>
           </div>
 

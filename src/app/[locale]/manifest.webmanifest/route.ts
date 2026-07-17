@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { MetadataRoute } from "next";
 import { isLocale, rtlLocales, type Locale } from "@/i18n/config";
+import { BRAND_LOGOS } from "@/lib/brand/logos";
 
 export async function GET(
   _request: Request,
@@ -24,15 +25,15 @@ export async function GET(
     orientation: "portrait-primary",
     icons: [
       {
-        src: "/logo-mark.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: BRAND_LOGOS.favicon192,
+        sizes: "192x192",
+        type: "image/png",
         purpose: "any",
       },
       {
-        src: "/logo-mark.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: BRAND_LOGOS.favicon512,
+        sizes: "512x512",
+        type: "image/png",
         purpose: "maskable",
       },
     ],
