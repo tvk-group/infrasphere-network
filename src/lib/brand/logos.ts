@@ -34,10 +34,17 @@ export function getLogoSrc(variant: LogoVariant): string {
   }
 }
 
-/** Display dimensions per variant (width × height). */
+/** Display dimensions per variant (width × height). Sizes are 2× the previous defaults. */
 export const LOGO_DIMENSIONS: Record<LogoVariant, { width: number; height: number; className: string }> = {
-  "full-light": { width: 240, height: 64, className: "h-10 sm:h-11 w-auto" },
-  "full-dark": { width: 280, height: 120, className: "h-10 sm:h-12 w-auto" },
-  "full-dark-horizontal": { width: 320, height: 80, className: "h-9 sm:h-10 w-auto max-w-[220px]" },
-  "mark-dark": { width: 40, height: 40, className: "h-9 w-9" },
+  "full-light": { width: 480, height: 132, className: "h-20 sm:h-[5.5rem] w-auto" },
+  "full-dark": { width: 560, height: 240, className: "h-20 sm:h-24 w-auto brand-logo-on-dark" },
+  "full-dark-horizontal": {
+    width: 640,
+    height: 160,
+    className: "h-[4.5rem] sm:h-20 w-auto max-w-full brand-logo-on-dark",
+  },
+  "mark-dark": { width: 80, height: 80, className: "h-[4.5rem] w-[4.5rem] brand-logo-on-dark" },
 };
+
+/** CSS class that removes opaque black backgrounds on dark surfaces. */
+export const LOGO_ON_DARK_CLASS = "brand-logo-on-dark";

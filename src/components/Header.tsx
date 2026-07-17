@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-silver-dark">
       <div className="site-container">
-        <div className="flex items-center justify-between gap-3 min-h-16 py-2">
+        <div className="flex items-center justify-between gap-3 min-h-20 py-3">
           <div className="shrink-0">
             <LogoClient logoVariant="full-light" className="mb-0" />
           </div>
