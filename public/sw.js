@@ -1,5 +1,5 @@
 const CACHE = "infrasphere-app-v2";
-const PRECACHE = ["/logo-mark.svg"];
+const PRECACHE = ["/brand/favicon-192.png", "/brand/logo-2-mark-dark.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

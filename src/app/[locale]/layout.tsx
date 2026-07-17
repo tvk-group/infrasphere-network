@@ -51,7 +51,8 @@ export default async function LocaleLayout({
     <html lang={htmlLangCodes[locale]} dir={dir} className={`${ibmPlex.variable} h-full`}>
       <head>
         <meta name="theme-color" content="#0a1628" />
-        <link rel="apple-touch-icon" href="/logo-mark.svg" />
+        <link rel="icon" href="/brand/favicon-32.png" sizes="32x32" type="image/png" />
+        <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
       </head>
       <body className="min-h-full flex flex-col antialiased">{children}</body>
     </html>

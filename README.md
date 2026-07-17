@@ -138,10 +138,16 @@ In Vercel → Project Settings → Build & Deployment:
 
 ## Brand assets
 
+Official logos live in `public/brand/`:
+
 | File | Use |
 |------|-----|
-| `public/logo-mark.svg` | Header/footer icon mark |
-| `public/logo.svg` | Full horizontal logo |
-| `src/app/icon.svg` | Browser favicon |
-| `src/app/apple-icon.svg` | Apple touch icon |
-| `public/og-image.svg` | Open Graph social preview |
+| `logo-1-full-light.png` | Website header (light background) |
+| `logo-2-mark-dark.png` | Favicon, PWA icons, compact mark |
+| `logo-3-full-dark.png` | Footer & Partner Portal header (dark background) |
+| `favicon-32.png` / `favicon-192.png` / `favicon-512.png` | Browser & PWA icons |
+| `apple-touch-icon.png` | iOS home screen |
+
+Replace these PNGs with your official exports (same filenames). See `public/brand/README.md`.
+
+Legacy SVG placeholders remain in `public/logo.svg` and `public/logo-mark.svg` for reference.

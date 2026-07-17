@@ -18,7 +18,7 @@ export function Header() {
       <div className="site-container">
         <div className="flex items-center justify-between gap-3 min-h-16 py-2">
           <div className="shrink-0">
-            <LogoClient />
+            <LogoClient logoVariant="full-light" className="mb-0" />
           </div>
 
           <nav
