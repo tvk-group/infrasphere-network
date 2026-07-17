@@ -53,7 +53,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         <div className="site-container">
           <h2 className="text-xl font-semibold text-navy mb-4">{dict.about.strategicRoleTitle}</h2>
           <p className="text-steel leading-relaxed max-w-3xl mb-10">{dict.about.strategicRoleBody}</p>
-          <EcosystemLayers dict={dict} />
+          <EcosystemLayers dict={dict} locale={locale} />
         </div>
       </section>
 

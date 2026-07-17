@@ -46,10 +46,13 @@ npm start
 
 InfraSphere Network is the physical infrastructure layer of the TVK ecosystem:
 
-- **TVK Group** — Holding Layer
-- **SOVRA** — Intelligence Layer
-- **EnteleKRON** — Trust Layer
-- **InfraSphere** — Infrastructure Layer
+- **TVK Group** — Holding Layer — [tvk.group](https://www.tvk.group)
+- **TVK Labs** — Innovation Layer — [tvklabs.com](https://www.tvklabs.com)
+- **TVK Infrastructure** — Infrastructure Operations — [tvkinfrastructure.com](https://www.tvkinfrastructure.com)
+- **TVK Energy** — Energy Layer — [tvkenergy.com](https://www.tvkenergy.com)
+- **SOVRA** — Intelligence Layer — [sovra.network](https://www.sovra.network)
+- **EnteleKRON** — Trust Layer — [entelekron.org](https://www.entelekron.org)
+- **InfraSphere** — Infrastructure Layer — [infrasphere.network](https://www.infrasphere.network)
 
 Currently in research, development, concept formation and pilot preparation stage.
 
