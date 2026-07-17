@@ -77,9 +77,15 @@ SEO utilities: `src/lib/seo/`
 
 ## Contact form & Partner Portal email
 
-Apply (`/en/app/apply`), Contact (`/en/app/contact`), and the marketing contact page all send email through [Resend](https://resend.com).
+Apply (`/en/app/apply`), Contact (`/en/app/contact`), and the marketing contact page use **Supabase** (store submissions) and **Brevo** (send notification emails).
 
-### Local development
+### 1. Supabase table
+
+Run the migration in your Supabase SQL editor:
+
+`supabase/migrations/001_contact_inquiries.sql`
+
+### 2. Environment variables
 
 ```bash
 cp .env.example .env.local
@@ -87,20 +93,21 @@ cp .env.example .env.local
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `RESEND_API_KEY` | Yes | API key from [Resend → API Keys](https://resend.com/api-keys) |
-| `CONTACT_TO_EMAIL` | Yes | Inbox that receives submissions (e.g. `partnerships@infrasphere.network`) |
-| `CONTACT_FROM_EMAIL` | No | Verified sender address. Defaults to `InfraSphere Network <onboarding@resend.dev>` for testing |
+| `SUPABASE_URL` | Yes | Project URL from Supabase → Settings → API |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Service role key (server-side only — never expose to client) |
+| `BREVO_API_KEY` | Yes | API key from [Brevo → SMTP & API](https://app.brevo.com/settings/keys/api) |
+| `CONTACT_TO_EMAIL` | Yes | Inbox that receives form notifications |
+| `CONTACT_FROM_EMAIL` | Yes* | Verified sender, e.g. `InfraSphere Network <noreply@infrasphere.network>` |
+| `BREVO_SENDER_NAME` | Alt | Sender name if not using `CONTACT_FROM_EMAIL` |
+| `BREVO_SENDER_EMAIL` | Alt | Sender email if not using `CONTACT_FROM_EMAIL` |
+
+\* Use a sender address verified in your Brevo account.
 
 Without these variables, forms return: *"Email service is not configured. Please try again later."*
 
-### Production (Vercel)
+### 3. Production (Vercel)
 
-1. Create a [Resend](https://resend.com) account and add/verify the `infrasphere.network` domain.
-2. In Vercel → **Project → Settings → Environment Variables**, add:
-   - `RESEND_API_KEY` = your Resend API key
-   - `CONTACT_TO_EMAIL` = destination inbox for form submissions
-   - `CONTACT_FROM_EMAIL` = `InfraSphere Network <noreply@infrasphere.network>` (must use a verified domain)
-3. **Redeploy** the project so the new variables take effect.
+In Vercel → **Project → Settings → Environment Variables**, add all variables above, then **redeploy**.
 
 ## Partner Portal (PWA)
 

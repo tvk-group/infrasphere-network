@@ -62,7 +62,7 @@ export function AppApplyForm() {
   }
 
   const inputClass =
-    "w-full px-3 py-2.5 border border-white/20 bg-white/10 text-white text-sm placeholder:text-white/50 focus:outline-none focus:border-energy-blue focus:ring-1 focus:ring-energy-blue/50 disabled:opacity-60";
+    "portal-select w-full px-3 py-2.5 border border-white/20 bg-white/10 text-white text-sm placeholder:text-white/50 focus:outline-none focus:border-energy-blue focus:ring-1 focus:ring-energy-blue/50 disabled:opacity-60";
   const labelClass = "block text-[10px] font-semibold uppercase tracking-wider text-white/80 mb-1.5";
 
   return (

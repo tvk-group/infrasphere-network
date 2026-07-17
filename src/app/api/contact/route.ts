@@ -1,15 +1,12 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { sendContactEmail, isBrevoConfigured } from "@/lib/brevo";
 import {
   type ContactFormData,
-  escapeHtml,
-  getInterestLabel,
   isValidEmail,
   isValidInterestKey,
 } from "@/lib/contact";
 import { COUNTRY_CODES } from "@/lib/countries";
-
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+import { getSupabaseAdmin, isSupabaseConfigured } from "@/lib/supabase/server";
 
 function isValidCountryCode(value: string): boolean {
   return (COUNTRY_CODES as readonly string[]).includes(value);
@@ -54,34 +51,8 @@ function validatePayload(body: unknown): { ok: true; data: ContactFormData } | {
   };
 }
 
-function buildEmailHtml(data: ContactFormData): string {
-  const interestLabel = isValidInterestKey(data.interest) ? getInterestLabel(data.interest) : data.interest;
-
-  const rows = [
-    ["Name", data.name],
-    ["Company", data.company],
-    ["Role", data.role || "—"],
-    ["Country", data.country || "—"],
-    ["Email", data.email],
-    ["Area of Interest", interestLabel],
-  ];
-
-  const tableRows = rows
-    .map(
-      ([label, value]) =>
-        `<tr><td style="padding:8px 12px;border:1px solid #e8ecf0;font-weight:600;color:#0a1628;width:140px;">${escapeHtml(label)}</td><td style="padding:8px 12px;border:1px solid #e8ecf0;color:#5a6578;">${escapeHtml(value)}</td></tr>`
-    )
-    .join("");
-
-  return `
-    <div style="font-family:system-ui,sans-serif;max-width:600px;">
-      <h2 style="color:#0a1628;margin:0 0 16px;">Infrastructure Partnership Inquiry</h2>
-      <p style="color:#5a6578;margin:0 0 20px;">A new inquiry was submitted via infrasphere.network.</p>
-      <table style="border-collapse:collapse;width:100%;margin-bottom:20px;">${tableRows}</table>
-      <h3 style="color:#0a1628;margin:0 0 8px;">Message</h3>
-      <p style="color:#5a6578;white-space:pre-wrap;margin:0;">${escapeHtml(data.message)}</p>
-    </div>
-  `;
+function detectSource(message: string): string {
+  return message.startsWith("[Partner Portal Application]") ? "partner_portal" : "website";
 }
 
 export async function POST(request: Request) {
@@ -94,41 +65,49 @@ export async function POST(request: Request) {
     }
 
     const { data } = validation;
-    const interestLabel = isValidInterestKey(data.interest) ? getInterestLabel(data.interest) : data.interest;
 
-    if (!resend) {
-      console.error("RESEND_API_KEY is not configured.");
+    if (!isSupabaseConfigured() || !isBrevoConfigured()) {
+      console.error("Contact service not configured.", {
+        supabase: isSupabaseConfigured(),
+        brevo: isBrevoConfigured(),
+      });
       return NextResponse.json(
         { error: "Email service is not configured. Please try again later." },
         { status: 503 }
       );
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL;
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || "InfraSphere Network <onboarding@resend.dev>";
-
-    if (!toEmail) {
-      console.error("CONTACT_TO_EMAIL is not configured.");
+    const supabase = getSupabaseAdmin();
+    if (!supabase) {
       return NextResponse.json(
         { error: "Email service is not configured. Please try again later." },
         { status: 503 }
       );
     }
 
-    const { error } = await resend.emails.send({
-      from: fromEmail,
-      to: [toEmail],
-      replyTo: data.email,
-      subject: `[InfraSphere] ${interestLabel} — ${data.company}`,
-      html: buildEmailHtml(data),
+    const { error: dbError } = await supabase.from("contact_inquiries").insert({
+      name: data.name,
+      company: data.company,
+      role: data.role || null,
+      country: data.country || null,
+      email: data.email,
+      interest: data.interest,
+      message: data.message,
+      source: detectSource(data.message),
     });
 
-    if (error) {
-      console.error("Resend error:", error);
+    if (dbError) {
+      console.error("Supabase insert error:", dbError);
       return NextResponse.json(
-        { error: "Failed to send your inquiry. Please try again later." },
+        { error: "Failed to save your inquiry. Please try again later." },
         { status: 502 }
       );
+    }
+
+    const emailResult = await sendContactEmail(data);
+    if (!emailResult.ok) {
+      console.error("Brevo send failed after DB save:", emailResult.error);
+      // Submission is stored — still return success to the user.
     }
 
     return NextResponse.json({ success: true });

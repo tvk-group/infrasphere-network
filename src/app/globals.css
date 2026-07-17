@@ -74,6 +74,25 @@ html {
   color: var(--portal-text);
 }
 
+/* Portal selects: dark closed field, readable dropdown options */
+.app-portal select,
+.app-contact-form select {
+  color: var(--portal-text);
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.app-portal select option,
+.app-contact-form select option {
+  background-color: #ffffff;
+  color: #0a1628;
+}
+
+.app-portal select option:checked,
+.app-contact-form select option:checked {
+  background-color: #e8f2fc;
+  color: #0a1628;
+}
+
 .app-contact-form input::placeholder,
 .app-contact-form textarea::placeholder {
   color: rgb(255 255 255 / 0.45);
