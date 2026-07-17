@@ -13,7 +13,6 @@ export const BRAND_LOGOS = {
   markDark: "/brand/logo-2-mark-dark.png",
   fullDark: "/brand/logo-3-full-dark.png",
   fullDarkHorizontal: "/brand/logo-3-full-dark-horizontal.png",
-  portalBanner: "/brand/logo-3-full-dark-horizontal.png",
   favicon32: "/brand/favicon-32.png",
   favicon192: "/brand/favicon-192.png",
   favicon512: "/brand/favicon-512.png",
