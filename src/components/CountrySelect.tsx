@@ -28,7 +28,7 @@ export function CountrySelect({
       name={name}
       required={required}
       disabled={disabled}
-      className={className}
+      className={`portal-select ${className}`}
       defaultValue=""
     >
       <option value="">{dict.contactForm.selectCountry}</option>

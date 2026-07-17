@@ -43,7 +43,7 @@ export function InterestSelect({
       name={name}
       required={required}
       disabled={disabled}
-      className={className}
+      className={`portal-select ${className}`}
       defaultValue=""
     >
       <option value="">{dict.contactForm.selectArea}</option>
