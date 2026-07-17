@@ -62,6 +62,7 @@ export const pl = {
     email: "Email",
     areaOfInterest: "Obszar zainteresowania",
     selectArea: "Wybierz obszar",
+    selectCountry: "Wybierz kraj",
     message: "Wiadomość",
     submit: "Omów możliwości infrastrukturalne",
     successTitle: "Dziękujemy za zapytanie",

@@ -59,6 +59,7 @@ export const no = {
     email: "Email",
     areaOfInterest: "Interesseområde",
     selectArea: "Velg et område",
+    selectCountry: "Velg et land",
     message: "Melding",
     submit: "Diskuter infrastrukturmuligheter",
     successTitle: "Takk for din forespørsel",

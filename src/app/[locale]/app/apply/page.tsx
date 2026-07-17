@@ -18,7 +18,7 @@ export default async function AppApplyPage({ params }: { params: Promise<{ local
     <div className="space-y-6">
       <div>
         <h1 className="text-xl font-semibold text-white tracking-tight">{dict.app.apply.title}</h1>
-        <p className="mt-2 text-sm text-white/60 leading-relaxed">{dict.app.apply.subtitle}</p>
+        <p className="mt-2 text-sm portal-muted leading-relaxed">{dict.app.apply.subtitle}</p>
       </div>
       <AppApplyForm />
     </div>

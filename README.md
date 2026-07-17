@@ -57,7 +57,7 @@ Currently in research, development, concept formation and pilot preparation stag
 
 All pages are available in 25 locales with manual translations (no machine translation):
 
-`en` `tr` `de` `ar` `fr` `es` `it` `pt` `nl` `ru` `zh` `ja` `ko` `hi` `pl` `sv` `no` `da` `fi` `cs` `el` `he` `id` `ms` `uk`
+`en` `tr` `de` `fr` `es` `it` `pt` `nl` `ar` `ru` `zh-cn` `zh-tw` `ja` `ko` `hi` `ur` `pl` `ro` `el` `sv` `no` `da` `fi` `he` `id`
 
 URLs use locale prefixes: `/en`, `/tr/about`, `/de/contact`, etc. Root `/` redirects to `/en`.
 
@@ -75,21 +75,42 @@ Translation files: `src/i18n/messages/{locale}.ts`
 
 SEO utilities: `src/lib/seo/`
 
-## Contact form (email)
+## Contact form & Partner Portal email
 
-The contact form sends inquiries via [Resend](https://resend.com). Copy `.env.example` to `.env.local` and set:
+Apply (`/en/app/apply`), Contact (`/en/app/contact`), and the marketing contact page all send email through [Resend](https://resend.com).
 
-| Variable | Description |
-|----------|-------------|
-| `RESEND_API_KEY` | API key from Resend dashboard |
-| `CONTACT_TO_EMAIL` | Inbox that receives form submissions |
-| `CONTACT_FROM_EMAIL` | Verified sender (use `onboarding@resend.dev` for testing) |
+### Local development
 
 ```bash
 cp .env.example .env.local
 ```
 
-For production, verify your domain in Resend and set `CONTACT_FROM_EMAIL` to e.g. `InfraSphere Network <noreply@infrasphere.network>`.
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `RESEND_API_KEY` | Yes | API key from [Resend → API Keys](https://resend.com/api-keys) |
+| `CONTACT_TO_EMAIL` | Yes | Inbox that receives submissions (e.g. `partnerships@infrasphere.network`) |
+| `CONTACT_FROM_EMAIL` | No | Verified sender address. Defaults to `InfraSphere Network <onboarding@resend.dev>` for testing |
+
+Without these variables, forms return: *"Email service is not configured. Please try again later."*
+
+### Production (Vercel)
+
+1. Create a [Resend](https://resend.com) account and add/verify the `infrasphere.network` domain.
+2. In Vercel → **Project → Settings → Environment Variables**, add:
+   - `RESEND_API_KEY` = your Resend API key
+   - `CONTACT_TO_EMAIL` = destination inbox for form submissions
+   - `CONTACT_FROM_EMAIL` = `InfraSphere Network <noreply@infrasphere.network>` (must use a verified domain)
+3. **Redeploy** the project so the new variables take effect.
+
+## Partner Portal (PWA)
+
+The Partner Portal at `/{locale}/app` is installable as a Progressive Web App:
+
+- **Install page**: `/{locale}/app/install` — platform-specific instructions plus one-click install on supported browsers
+- **Manifest**: locale-aware at `/{locale}/manifest.webmanifest`
+- **Service worker**: registered on all portal pages for offline-capable caching
+
+Install from Chrome/Edge (desktop), Chrome (Android), or Safari (iOS → Add to Home Screen).
 
 ## Deployment (Vercel)
 

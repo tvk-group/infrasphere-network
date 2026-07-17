@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { CountrySelect } from "@/components/CountrySelect";
+import { InterestSelect } from "@/components/InterestSelect";
 import { useDictionary } from "@/i18n/DictionaryProvider";
 
 export function AppApplyForm() {
@@ -8,15 +10,7 @@ export function AppApplyForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const orgTypes = Object.values(dict.app.apply.orgTypes);
-  const interestAreas = [
-    dict.interestAreas.energyInfrastructure,
-    dict.interestAreas.aiInfrastructure,
-    dict.interestAreas.smartInfrastructure,
-    dict.interestAreas.industrialTechnology,
-    dict.interestAreas.modularSystems,
-    dict.interestAreas.strategicPartnership,
-  ];
+  const orgTypes = Object.entries(dict.app.apply.orgTypes);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,6 +19,8 @@ export function AppApplyForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const orgTypeKey = formData.get("orgType") as string;
+    const orgTypeLabel = dict.app.apply.orgTypes[orgTypeKey as keyof typeof dict.app.apply.orgTypes] ?? orgTypeKey;
 
     try {
       const response = await fetch("/api/contact", {
@@ -37,7 +33,7 @@ export function AppApplyForm() {
           country: formData.get("country"),
           email: formData.get("email"),
           interest: formData.get("interest"),
-          message: `[Partner Portal Application]\nOrganization Type: ${formData.get("orgType")}\n\n${formData.get("message")}`,
+          message: `[Partner Portal Application]\nOrganization Type: ${orgTypeLabel}\n\n${formData.get("message")}`,
           website: formData.get("website"),
         }),
       });
@@ -58,23 +54,23 @@ export function AppApplyForm() {
 
   if (status === "success") {
     return (
-      <div className="p-6 bg-accent-green/10 border border-accent-green/30">
+      <div className="p-6 bg-accent-green/15 border border-accent-green/40">
         <h3 className="text-base font-semibold text-white mb-2">{dict.app.apply.successTitle}</h3>
-        <p className="text-sm text-white/60">{dict.app.apply.successBody}</p>
+        <p className="text-sm text-white/85">{dict.app.apply.successBody}</p>
       </div>
     );
   }
 
   const inputClass =
-    "w-full px-3 py-2.5 border border-white/10 bg-white/5 text-white text-sm focus:outline-none focus:border-energy-blue disabled:opacity-60";
-  const labelClass = "block text-[10px] font-medium uppercase tracking-wider text-white/40 mb-1.5";
+    "w-full px-3 py-2.5 border border-white/20 bg-white/10 text-white text-sm placeholder:text-white/50 focus:outline-none focus:border-energy-blue focus:ring-1 focus:ring-energy-blue/50 disabled:opacity-60";
+  const labelClass = "block text-[10px] font-semibold uppercase tracking-wider text-white/80 mb-1.5";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
       {status === "error" && (
-        <div className="p-3 bg-red-500/10 border border-red-500/30 text-sm text-red-300" role="alert">
+        <div className="p-3 bg-red-500/15 border border-red-400/40 text-sm text-red-200" role="alert">
           {errorMessage}
         </div>
       )}
@@ -83,8 +79,8 @@ export function AppApplyForm() {
         <label htmlFor="orgType" className={labelClass}>{dict.app.apply.organizationType}</label>
         <select id="orgType" name="orgType" required disabled={status === "submitting"} className={inputClass}>
           <option value="">{dict.app.apply.selectType}</option>
-          {orgTypes.map((type) => (
-            <option key={type} value={type}>{type}</option>
+          {orgTypes.map(([key, label]) => (
+            <option key={key} value={key}>{label}</option>
           ))}
         </select>
       </div>
@@ -104,7 +100,7 @@ export function AppApplyForm() {
         </div>
         <div>
           <label htmlFor="country" className={labelClass}>{dict.contactForm.country}</label>
-          <input type="text" id="country" name="country" disabled={status === "submitting"} className={inputClass} />
+          <CountrySelect disabled={status === "submitting"} className={inputClass} />
         </div>
       </div>
 
@@ -115,12 +111,7 @@ export function AppApplyForm() {
 
       <div>
         <label htmlFor="interest" className={labelClass}>{dict.contactForm.areaOfInterest}</label>
-        <select id="interest" name="interest" required disabled={status === "submitting"} className={inputClass}>
-          <option value="">{dict.contactForm.selectArea}</option>
-          {interestAreas.map((area) => (
-            <option key={area} value={area}>{area}</option>
-          ))}
-        </select>
+        <InterestSelect excludeGeneral disabled={status === "submitting"} className={inputClass} />
       </div>
 
       <div>

@@ -114,6 +114,7 @@ export const ar = {
     email: "البريد الإلكتروني",
     areaOfInterest: "مجال الاهتمام",
     selectArea: "اختر مجالاً",
+    selectCountry: "اختر دولة",
     message: "الرسالة",
     submit: "ناقش فرص البنية التحتية",
     successTitle: "شكراً لاستفساركم",

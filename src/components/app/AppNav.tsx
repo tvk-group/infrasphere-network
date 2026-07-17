@@ -14,7 +14,7 @@ const navItems = [
 ] as const;
 
 function NavIcon({ type, active }: { type: string; active: boolean }) {
-  const color = active ? "text-energy-blue" : "text-white/50";
+  const color = active ? "text-energy-blue" : "text-white/75";
   if (type === "home") {
     return (
       <svg className={`w-5 h-5 ${color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ export function AppNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 inset-x-0 z-50 bg-navy border-t border-white/10 safe-bottom">
+    <nav className="fixed bottom-0 inset-x-0 z-50 bg-navy border-t border-white/20 safe-bottom">
       <div className="max-w-lg mx-auto flex items-stretch">
         {navItems.map(({ key, navKey, icon }) => {
           const href = localizedPath(locale, key);
@@ -64,7 +64,7 @@ export function AppNav() {
             <Link
               key={key}
               href={href}
-              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 min-h-[56px] transition-colors ${active ? "text-energy-blue" : "text-white/50"}`}
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 min-h-[56px] transition-colors ${active ? "text-energy-blue" : "text-white/75"}`}
             >
               <NavIcon type={icon} active={active} />
               <span className="text-[9px] font-medium uppercase tracking-wide">{dict.app.nav[navKey]}</span>

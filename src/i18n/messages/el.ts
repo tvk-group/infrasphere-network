@@ -114,6 +114,7 @@ export const el = {
     email: "Email",
     areaOfInterest: "Τομέας ενδιαφέροντος",
     selectArea: "Επιλέξτε τομέα",
+    selectCountry: "Επιλέξτε χώρα",
     message: "Μήνυμα",
     submit: "Συζητήστε ευκαιρίες υποδομών",
     successTitle: "Σας ευχαριστούμε για το αίτημά σας",

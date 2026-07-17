@@ -114,6 +114,7 @@ export const ru = {
     email: "Email",
     areaOfInterest: "Область интереса",
     selectArea: "Выберите область",
+    selectCountry: "Выберите страну",
     message: "Сообщение",
     submit: "Обсудить инфраструктурные возможности",
     successTitle: "Благодарим за ваш запрос",

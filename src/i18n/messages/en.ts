@@ -115,6 +115,7 @@ export const en = {
     email: "Email",
     areaOfInterest: "Area of Interest",
     selectArea: "Select an area",
+    selectCountry: "Select a country",
     message: "Message",
     submit: "Discuss Infrastructure Opportunities",
     successTitle: "Thank you for your inquiry",
@@ -741,6 +742,11 @@ export const en = {
       metaDescription: "Install the InfraSphere Partner Portal as a progressive web app on your device.",
       title: "Install the Partner Portal",
       subtitle: "Add InfraSphere to your device for quick access to partnership tools.",
+      installPrompt: "Install the Partner Portal for quick access from your home screen.",
+      installButton: "Install Partner Portal",
+      installed: "Partner Portal is installed on this device.",
+      readyTitle: "Ready to install",
+      readyBody: "This portal can be installed as an app on your phone, tablet or desktop.",
       ios: {
         title: "iPhone & iPad",
         steps: [

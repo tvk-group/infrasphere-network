@@ -114,6 +114,7 @@ export const zhTw = {
     email: "Email",
     areaOfInterest: "關注領域",
     selectArea: "選擇領域",
+    selectCountry: "選擇國家",
     message: "留言",
     submit: "探討基礎設施合作機會",
     successTitle: "感謝您的諮詢",

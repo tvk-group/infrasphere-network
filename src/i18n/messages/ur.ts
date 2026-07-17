@@ -114,6 +114,7 @@ export const ur = {
     email: "Email",
     areaOfInterest: "دلچسپی کا شعبہ",
     selectArea: "شعبہ منتخب کریں",
+    selectCountry: "ملک منتخب کریں",
     message: "پیغام",
     submit: "انفراسٹرکچر کے مواقع پر بات چیت",
     successTitle: "آپ کی درخواست کا شکریہ",

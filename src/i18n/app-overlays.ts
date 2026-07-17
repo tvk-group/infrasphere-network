@@ -74,6 +74,11 @@ function buildOverlay(patch: LocalePatch): AppOverlay {
       ios: patch.install.ios,
       android: patch.install.android,
       desktop: patch.install.desktop,
+      installPrompt: patch.install.installPrompt,
+      installButton: patch.install.installButton,
+      installed: patch.install.installed,
+      readyTitle: patch.install.readyTitle,
+      readyBody: patch.install.readyBody,
     },
   });
   return { navApp: patch.navApp, getApp: patch.getApp, app };

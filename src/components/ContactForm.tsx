@@ -1,22 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { CountrySelect } from "@/components/CountrySelect";
+import { InterestSelect } from "@/components/InterestSelect";
 import { useDictionary } from "@/i18n/DictionaryProvider";
 
 export function ContactForm() {
   const { dict } = useDictionary();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const interestAreas = [
-    dict.interestAreas.energyInfrastructure,
-    dict.interestAreas.aiInfrastructure,
-    dict.interestAreas.smartInfrastructure,
-    dict.interestAreas.industrialTechnology,
-    dict.interestAreas.modularSystems,
-    dict.interestAreas.strategicPartnership,
-    dict.interestAreas.generalInquiry,
-  ];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -96,7 +88,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="country" className={labelClass}>{dict.contactForm.country}</label>
-          <input type="text" id="country" name="country" disabled={status === "submitting"} className={inputClass} />
+          <CountrySelect disabled={status === "submitting"} className={inputClass} />
         </div>
       </div>
       <div>
@@ -105,12 +97,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="interest" className={labelClass}>{dict.contactForm.areaOfInterest}</label>
-        <select id="interest" name="interest" required disabled={status === "submitting"} className={inputClass}>
-          <option value="">{dict.contactForm.selectArea}</option>
-          {interestAreas.map((area) => (
-            <option key={area} value={area}>{area}</option>
-          ))}
-        </select>
+        <InterestSelect disabled={status === "submitting"} className={inputClass} />
       </div>
       <div>
         <label htmlFor="message" className={labelClass}>{dict.contactForm.message}</label>
