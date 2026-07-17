@@ -6,7 +6,7 @@ Official logo files for the website and Partner Portal.
 |------|-----|
 | `logo-1-full-light.png` | Marketing site header (light/white background) |
 | `logo-2-mark-dark.png` | Favicon, PWA icons, compact dark UI mark |
-| `logo-3-full-dark.png` | Footer, Partner Portal header (dark backgrounds) |
+| `logo-3-full-dark.png` | Footer, Partner Portal header & banner (dark/black background) |
 | `favicon-32.png` | Browser tab (32×32) |
 | `favicon-192.png` | PWA / Android install icon |
 | `favicon-512.png` | PWA splash / large install icon |

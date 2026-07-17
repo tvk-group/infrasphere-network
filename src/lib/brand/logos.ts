@@ -11,6 +11,8 @@ export const BRAND_LOGOS = {
   fullLight: "/brand/logo-1-full-light.png",
   markDark: "/brand/logo-2-mark-dark.png",
   fullDark: "/brand/logo-3-full-dark.png",
+  /** Legacy marketing banner — prefer fullDark in portal */
+  portalBanner: "/brand/logo-3-full-dark.png",
   favicon32: "/brand/favicon-32.png",
   favicon192: "/brand/favicon-192.png",
   favicon512: "/brand/favicon-512.png",
@@ -33,6 +35,6 @@ export function getLogoSrc(variant: LogoVariant): string {
 /** Display dimensions per variant (width × height). */
 export const LOGO_DIMENSIONS: Record<LogoVariant, { width: number; height: number; className: string }> = {
   "full-light": { width: 220, height: 72, className: "h-10 sm:h-11 w-auto" },
-  "full-dark": { width: 220, height: 72, className: "h-10 sm:h-11 w-auto" },
+  "full-dark": { width: 280, height: 120, className: "h-10 sm:h-12 w-auto" },
   "mark-dark": { width: 40, height: 40, className: "h-9 w-9" },
 };
