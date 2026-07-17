@@ -114,6 +114,7 @@ export const fi = {
     email: "Sähköposti",
     areaOfInterest: "Kiinnostuksen kohde",
     selectArea: "Valitse alue",
+    selectCountry: "Valitse maa",
     message: "Viesti",
     submit: "Keskustele infrastruktuurimahdollisuuksista",
     successTitle: "Kiitos tiedustelustasi",

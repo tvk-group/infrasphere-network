@@ -59,6 +59,7 @@ export const sv = {
     email: "Email",
     areaOfInterest: "Intresseområde",
     selectArea: "Välj ett område",
+    selectCountry: "Välj ett land",
     message: "Meddelande",
     submit: "Diskutera infrastrukturmöjligheter",
     successTitle: "Tack för din förfrågan",

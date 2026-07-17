@@ -114,6 +114,7 @@ export const tr = {
     email: "E-posta",
     areaOfInterest: "İlgi Alanı",
     selectArea: "Alan seçin",
+    selectCountry: "Ülke seçin",
     message: "Mesaj",
     submit: "Altyapı Fırsatlarını Görüşün",
     successTitle: "Talebiniz için teşekkür ederiz",

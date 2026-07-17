@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IBM_Plex_Sans } from "next/font/google";
-import { getDictionary } from "@/i18n/get-dictionary";
 import { isLocale, locales, rtlLocales, type Locale } from "@/i18n/config";
 import { htmlLangCodes } from "@/lib/seo/hreflang";
 import { SITE_URL } from "@/lib/seo/constants";
@@ -16,15 +15,24 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  manifest: "/manifest.webmanifest",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-    title: "InfraSphere",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = isLocale(localeParam) ? localeParam : "en";
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    manifest: `/${locale}/manifest.webmanifest`,
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "black-translucent",
+      title: "InfraSphere",
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

@@ -35,8 +35,18 @@ export type LocalePatch = {
     ios: { title: string; steps: string[] };
     android: { title: string; steps: string[] };
     desktop: { title: string; steps: string[] };
+    installPrompt: string;
+    installButton: string;
+    installed: string;
+    readyTitle: string;
+    readyBody: string;
   };
 };
+
+type LocalePatchInput = Omit<Partial<LocalePatch>, "install" | "navApp" | "getApp" | "portal"> &
+  Pick<LocalePatch, "navApp" | "getApp" | "portal"> & {
+    install?: Partial<LocalePatch["install"]>;
+  };
 
 const installSteps = {
   ios: ["Open this page in Safari.", "Tap the Share button.", "Select Add to Home Screen.", "Tap Add to confirm."],
@@ -54,7 +64,20 @@ const orgTypesEn = {
   other: "Other",
 };
 
-function base(p: Partial<LocalePatch> & Pick<LocalePatch, "navApp" | "getApp" | "portal">): LocalePatch {
+function base(p: LocalePatchInput): LocalePatch {
+  const defaultInstall: LocalePatch["install"] = {
+    title: "Install the Partner Portal",
+    subtitle: "Add InfraSphere to your device for quick access to partnership tools.",
+    ios: { title: "iPhone & iPad", steps: installSteps.ios },
+    android: { title: "Android", steps: installSteps.android },
+    desktop: { title: "Desktop", steps: installSteps.desktop },
+    installPrompt: "Install the Partner Portal for quick access from your home screen.",
+    installButton: "Install Partner Portal",
+    installed: "Partner Portal is installed on this device.",
+    readyTitle: "Ready to install",
+    readyBody: "This portal can be installed as an app on your phone, tablet or desktop.",
+  };
+
   return {
     tagline: "Infrastructure collaboration for strategic partners.",
     openWebsite: "Open Website",
@@ -87,14 +110,8 @@ function base(p: Partial<LocalePatch> & Pick<LocalePatch, "navApp" | "getApp" | 
       stages: { research: "Research", concept: "Concept", pilot: "Pilot Prep" },
     },
     contact: { title: "Partner Contact", subtitle: "Reach the InfraSphere team for infrastructure collaboration and strategic partnership discussions." },
-    install: {
-      title: "Install the Partner Portal",
-      subtitle: "Add InfraSphere to your device for quick access to partnership tools.",
-      ios: { title: "iPhone & iPad", steps: installSteps.ios },
-      android: { title: "Android", steps: installSteps.android },
-      desktop: { title: "Desktop", steps: installSteps.desktop },
-    },
     ...p,
+    install: { ...defaultInstall, ...p.install },
   };
 }
 

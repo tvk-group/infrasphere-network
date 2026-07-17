@@ -114,6 +114,7 @@ export const da = {
     email: "E-mail",
     areaOfInterest: "Interesseområde",
     selectArea: "Vælg et område",
+    selectCountry: "Vælg et land",
     message: "Besked",
     submit: "Drøft infrastrukturmuligheder",
     successTitle: "Tak for din forespørgsel",

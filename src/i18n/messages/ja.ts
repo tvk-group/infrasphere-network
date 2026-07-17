@@ -114,6 +114,7 @@ export const ja = {
     email: "メールアドレス",
     areaOfInterest: "関心分野",
     selectArea: "分野を選択",
+    selectCountry: "国を選択",
     message: "メッセージ",
     submit: "インフラストラクチャの機会について相談",
     successTitle: "お問い合わせありがとうございます",

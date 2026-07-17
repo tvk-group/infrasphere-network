@@ -114,6 +114,7 @@ export const he = {
     email: "דוא\"ל",
     areaOfInterest: "תחום עניין",
     selectArea: "בחרו תחום",
+    selectCountry: "בחרו מדינה",
     message: "הודעה",
     submit: "דנו בהזדמנויות תשתית",
     successTitle: "תודה על פנייתכם",

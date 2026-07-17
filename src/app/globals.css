@@ -2,17 +2,22 @@
 
 :root {
   --navy: #0a1628;
-  --navy-light: #132238;
+  --navy-light: #1a2d4a;
   --steel: #5a6578;
   --steel-light: #8b95a5;
   --silver: #f4f6f8;
   --silver-dark: #e8ecf0;
-  --energy-blue: #1a6fd4;
+  --energy-blue: #3d9bff;
   --energy-blue-light: #e8f2fc;
-  --accent-green: #2d7a4f;
+  --accent-green: #3d9a6a;
   --accent-green-light: #e8f5ee;
   --white: #ffffff;
   --foreground: #1a2332;
+  --portal-text: #f0f4f8;
+  --portal-text-muted: #b8c5d6;
+  --portal-text-subtle: #8fa3bc;
+  --portal-surface: rgb(255 255 255 / 0.1);
+  --portal-border: rgb(255 255 255 / 0.2);
 }
 
 @theme inline {
@@ -43,35 +48,59 @@ html {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
+/* Partner portal — higher contrast for readability */
+.app-portal {
+  color: var(--portal-text);
+}
+
+.app-portal .portal-muted {
+  color: var(--portal-text-muted);
+}
+
+.app-portal .portal-subtle {
+  color: var(--portal-text-subtle);
+}
+
+.app-portal .portal-surface {
+  background: var(--portal-surface);
+  border-color: var(--portal-border);
+}
+
 .app-contact-form input,
 .app-contact-form select,
 .app-contact-form textarea {
-  background: rgb(255 255 255 / 0.05);
-  border-color: rgb(255 255 255 / 0.1);
-  color: white;
+  background: rgb(255 255 255 / 0.1);
+  border-color: rgb(255 255 255 / 0.22);
+  color: var(--portal-text);
+}
+
+.app-contact-form input::placeholder,
+.app-contact-form textarea::placeholder {
+  color: rgb(255 255 255 / 0.45);
 }
 
 .app-contact-form label {
-  color: rgb(255 255 255 / 0.4);
+  color: rgb(255 255 255 / 0.82);
+  font-weight: 600;
 }
 
 .app-contact-form .bg-accent-green-light {
-  background: rgb(45 122 79 / 0.1);
-  border-color: rgb(45 122 79 / 0.3);
+  background: rgb(61 154 106 / 0.15);
+  border-color: rgb(61 154 106 / 0.4);
 }
 
 .app-contact-form .text-navy {
-  color: white;
+  color: var(--portal-text);
 }
 
 .app-contact-form .text-steel {
-  color: rgb(255 255 255 / 0.6);
+  color: var(--portal-text-muted);
 }
 
 .app-contact-form .bg-red-50 {
-  background: rgb(239 68 68 / 0.1);
-  border-color: rgb(239 68 68 / 0.3);
-  color: rgb(252 165 165);
+  background: rgb(239 68 68 / 0.15);
+  border-color: rgb(248 113 113 / 0.4);
+  color: rgb(254 202 202);
 }
 
 .app-contact-form button[type="submit"] {

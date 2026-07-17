@@ -114,6 +114,7 @@ export const zhCn = {
     email: "Email",
     areaOfInterest: "关注领域",
     selectArea: "选择领域",
+    selectCountry: "选择国家",
     message: "留言",
     submit: "探讨基础设施合作机会",
     successTitle: "感谢您的咨询",

@@ -114,6 +114,7 @@ export const ro = {
     email: "Email",
     areaOfInterest: "Domeniu de interes",
     selectArea: "Selectează un domeniu",
+    selectCountry: "Selectați o țară",
     message: "Mesaj",
     submit: "Discută oportunități de infrastructură",
     successTitle: "Vă mulțumim pentru solicitare",

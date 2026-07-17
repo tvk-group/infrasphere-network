@@ -1,0 +1,122 @@
+/** ISO 3166-1 alpha-2 codes for the country dropdown (common markets first). */
+export const COUNTRY_CODES = [
+  "DE",
+  "US",
+  "GB",
+  "FR",
+  "TR",
+  "NL",
+  "BE",
+  "AT",
+  "CH",
+  "IT",
+  "ES",
+  "PT",
+  "PL",
+  "RO",
+  "SE",
+  "NO",
+  "DK",
+  "FI",
+  "IE",
+  "LU",
+  "CZ",
+  "HU",
+  "GR",
+  "BG",
+  "HR",
+  "SK",
+  "SI",
+  "LT",
+  "LV",
+  "EE",
+  "CY",
+  "MT",
+  "IS",
+  "CA",
+  "MX",
+  "BR",
+  "AR",
+  "CL",
+  "CO",
+  "PE",
+  "AE",
+  "SA",
+  "QA",
+  "KW",
+  "BH",
+  "OM",
+  "IL",
+  "EG",
+  "ZA",
+  "NG",
+  "KE",
+  "MA",
+  "IN",
+  "PK",
+  "BD",
+  "ID",
+  "MY",
+  "SG",
+  "TH",
+  "VN",
+  "PH",
+  "JP",
+  "KR",
+  "CN",
+  "TW",
+  "HK",
+  "AU",
+  "NZ",
+  "RU",
+  "UA",
+  "KZ",
+  "UZ",
+] as const;
+
+export type CountryCode = (typeof COUNTRY_CODES)[number];
+
+const localeMap: Record<string, string> = {
+  en: "en",
+  tr: "tr",
+  de: "de",
+  fr: "fr",
+  es: "es",
+  it: "it",
+  pt: "pt",
+  nl: "nl",
+  ar: "ar",
+  ru: "ru",
+  "zh-cn": "zh-CN",
+  "zh-tw": "zh-TW",
+  ja: "ja",
+  ko: "ko",
+  hi: "hi",
+  ur: "ur",
+  pl: "pl",
+  ro: "ro",
+  el: "el",
+  sv: "sv",
+  no: "nb",
+  da: "da",
+  fi: "fi",
+  he: "he",
+  id: "id",
+};
+
+export function getCountryName(code: string, locale: string): string {
+  const intlLocale = localeMap[locale] ?? "en";
+  try {
+    const display = new Intl.DisplayNames([intlLocale], { type: "region" });
+    return display.of(code) ?? code;
+  } catch {
+    return code;
+  }
+}
+
+export function getCountryOptions(locale: string): { code: string; name: string }[] {
+  return COUNTRY_CODES.map((code) => ({
+    code,
+    name: getCountryName(code, locale),
+  })).sort((a, b) => a.name.localeCompare(b.name, localeMap[locale] ?? "en"));
+}

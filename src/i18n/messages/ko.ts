@@ -114,6 +114,7 @@ export const ko = {
     email: "이메일",
     areaOfInterest: "관심 분야",
     selectArea: "분야 선택",
+    selectCountry: "국가 선택",
     message: "메시지",
     submit: "인프라 기회 논의하기",
     successTitle: "문의해 주셔서 감사합니다",

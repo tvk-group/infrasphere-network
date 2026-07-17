@@ -21,7 +21,7 @@ export default async function AppLayout({
 
   return (
     <DictionaryProvider locale={locale} dict={dict}>
-      <div className="min-h-full bg-navy flex flex-col">
+      <div className="app-portal min-h-full bg-navy flex flex-col">
         <ServiceWorkerRegister />
         <AppHeader />
         <main className="flex-1 max-w-lg mx-auto w-full px-4 pt-6 pb-24">{children}</main>

@@ -2,12 +2,18 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import {
   type ContactFormData,
-  INTEREST_AREAS,
   escapeHtml,
+  getInterestLabel,
   isValidEmail,
+  isValidInterestKey,
 } from "@/lib/contact";
+import { COUNTRY_CODES } from "@/lib/countries";
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
+function isValidCountryCode(value: string): boolean {
+  return (COUNTRY_CODES as readonly string[]).includes(value);
+}
 
 function validatePayload(body: unknown): { ok: true; data: ContactFormData } | { ok: false; error: string } {
   if (!body || typeof body !== "object") {
@@ -31,14 +37,16 @@ function validatePayload(body: unknown): { ok: true; data: ContactFormData } | {
   if (!name || name.length > 120) return { ok: false, error: "Name is required." };
   if (!company || company.length > 160) return { ok: false, error: "Company is required." };
   if (!email || !isValidEmail(email) || email.length > 254) return { ok: false, error: "Valid email is required." };
-  if (!interest || !INTEREST_AREAS.includes(interest as (typeof INTEREST_AREAS)[number])) {
+  if (!interest || !isValidInterestKey(interest)) {
     return { ok: false, error: "Please select a valid area of interest." };
   }
   if (!message || message.length < 10 || message.length > 5000) {
     return { ok: false, error: "Message must be between 10 and 5000 characters." };
   }
   if (role.length > 120) return { ok: false, error: "Role is too long." };
-  if (country.length > 120) return { ok: false, error: "Country is too long." };
+  if (country && !isValidCountryCode(country)) {
+    return { ok: false, error: "Please select a valid country." };
+  }
 
   return {
     ok: true,
@@ -47,13 +55,15 @@ function validatePayload(body: unknown): { ok: true; data: ContactFormData } | {
 }
 
 function buildEmailHtml(data: ContactFormData): string {
+  const interestLabel = isValidInterestKey(data.interest) ? getInterestLabel(data.interest) : data.interest;
+
   const rows = [
     ["Name", data.name],
     ["Company", data.company],
     ["Role", data.role || "—"],
     ["Country", data.country || "—"],
     ["Email", data.email],
-    ["Area of Interest", data.interest],
+    ["Area of Interest", interestLabel],
   ];
 
   const tableRows = rows
@@ -84,6 +94,7 @@ export async function POST(request: Request) {
     }
 
     const { data } = validation;
+    const interestLabel = isValidInterestKey(data.interest) ? getInterestLabel(data.interest) : data.interest;
 
     if (!resend) {
       console.error("RESEND_API_KEY is not configured.");
@@ -108,7 +119,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: [toEmail],
       replyTo: data.email,
-      subject: `[InfraSphere] ${data.interest} — ${data.company}`,
+      subject: `[InfraSphere] ${interestLabel} — ${data.company}`,
       html: buildEmailHtml(data),
     });
 

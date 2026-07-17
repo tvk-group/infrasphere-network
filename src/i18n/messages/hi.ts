@@ -59,6 +59,7 @@ export const hi = {
     email: "Email",
     areaOfInterest: "रुचि का क्षेत्र",
     selectArea: "क्षेत्र चुनें",
+    selectCountry: "देश चुनें",
     message: "संदेश",
     submit: "इन्फ्रास्ट्रक्चर अवसरों पर चर्चा करें",
     successTitle: "आपकी पूछताछ के लिए धन्यवाद",

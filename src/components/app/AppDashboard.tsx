@@ -18,30 +18,30 @@ export function AppDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <span className="inline-block px-2 py-1 text-[10px] font-semibold uppercase tracking-widest bg-energy-blue/20 text-energy-blue mb-3">
+        <span className="inline-block px-2 py-1 text-[10px] font-semibold uppercase tracking-widest bg-energy-blue/25 text-energy-blue mb-3">
           {dict.app.stageBadge}
         </span>
         <h1 className="text-xl font-semibold text-white tracking-tight">{d.welcome}</h1>
-        <p className="mt-2 text-sm text-white/60 leading-relaxed">{d.subtitle}</p>
+        <p className="mt-2 text-sm portal-muted leading-relaxed">{d.subtitle}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="p-3 bg-white/5 border border-white/10">
-          <p className="text-[10px] uppercase tracking-wider text-white/40">{d.stats.focusAreas}</p>
+        <div className="p-3 portal-surface border">
+          <p className="text-[10px] uppercase tracking-wider portal-subtle">{d.stats.focusAreas}</p>
           <p className="text-2xl font-semibold text-energy-blue mt-1">6</p>
         </div>
-        <div className="p-3 bg-white/5 border border-white/10">
-          <p className="text-[10px] uppercase tracking-wider text-white/40">{d.stats.pipeline}</p>
+        <div className="p-3 portal-surface border">
+          <p className="text-[10px] uppercase tracking-wider portal-subtle">{d.stats.pipeline}</p>
           <p className="text-2xl font-semibold text-accent-green mt-1">8+</p>
         </div>
-        <div className="col-span-2 p-3 bg-white/5 border border-white/10">
-          <p className="text-[10px] uppercase tracking-wider text-white/40">{d.stats.stage}</p>
+        <div className="col-span-2 p-3 portal-surface border">
+          <p className="text-[10px] uppercase tracking-wider portal-subtle">{d.stats.stage}</p>
           <p className="text-sm font-medium text-white mt-1">{d.stats.stageValue}</p>
         </div>
       </div>
 
       <div>
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3">{d.quickActions}</h2>
+        <h2 className="text-xs font-semibold uppercase tracking-widest portal-subtle mb-3">{d.quickActions}</h2>
         <div className="space-y-3">
           {cards.map(({ key, path }) => {
             const card = d.cards[key];
@@ -49,10 +49,10 @@ export function AppDashboard() {
               <Link
                 key={key}
                 href={localizedPath(locale, path)}
-                className="block p-4 bg-white/5 border border-white/10 hover:border-energy-blue/40 transition-colors"
+                className="block p-4 portal-surface border hover:border-energy-blue/50 transition-colors"
               >
                 <p className="text-sm font-medium text-white">{card.title}</p>
-                <p className="text-xs text-white/50 mt-1">{card.description}</p>
+                <p className="text-xs portal-muted mt-1">{card.description}</p>
                 <span className="inline-block mt-2 text-xs text-energy-blue font-medium">{card.cta} →</span>
               </Link>
             );
@@ -60,8 +60,8 @@ export function AppDashboard() {
         </div>
       </div>
 
-      <p className="text-[11px] text-white/40 leading-relaxed border-t border-white/10 pt-4">{d.notice}</p>
-      <p className="text-[11px] text-white/30">{d.ecosystem}</p>
+      <p className="text-[11px] portal-muted leading-relaxed border-t border-white/20 pt-4">{d.notice}</p>
+      <p className="text-[11px] portal-subtle">{d.ecosystem}</p>
     </div>
   );
 }

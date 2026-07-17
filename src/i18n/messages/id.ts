@@ -114,6 +114,7 @@ export const id = {
     email: "Email",
     areaOfInterest: "Area Minat",
     selectArea: "Pilih area",
+    selectCountry: "Pilih negara",
     message: "Pesan",
     submit: "Diskusikan Peluang Infrastruktur",
     successTitle: "Terima kasih atas pertanyaan Anda",

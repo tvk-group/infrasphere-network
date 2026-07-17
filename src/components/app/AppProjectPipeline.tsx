@@ -3,9 +3,9 @@
 import { useDictionary } from "@/i18n/DictionaryProvider";
 
 const stageColors: Record<string, string> = {
-  research: "bg-energy-blue/20 text-energy-blue",
-  concept: "bg-accent-green/20 text-accent-green",
-  pilot: "bg-white/10 text-white/70",
+  research: "bg-energy-blue/25 text-energy-blue",
+  concept: "bg-accent-green/25 text-accent-green",
+  pilot: "bg-white/15 text-white/90",
 };
 
 export function AppProjectPipeline() {
@@ -60,16 +60,16 @@ export function AppProjectPipeline() {
     <div className="space-y-4">
       <div>
         <h1 className="text-xl font-semibold text-white tracking-tight">{p.title}</h1>
-        <p className="mt-2 text-sm text-white/60 leading-relaxed">{p.subtitle}</p>
+        <p className="mt-2 text-sm portal-muted leading-relaxed">{p.subtitle}</p>
       </div>
       <div className="space-y-3">
         {items.map((item) => (
-          <div key={item.title} className="p-4 bg-white/5 border border-white/10">
+          <div key={item.title} className="p-4 portal-surface border">
             <span className={`inline-block px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider mb-2 ${stageColors[item.stage]}`}>
               {stages[item.stage]}
             </span>
             <p className="text-sm font-medium text-white">{item.title}</p>
-            <p className="text-xs text-white/50 mt-1 leading-relaxed">{item.description}</p>
+            <p className="text-xs portal-muted mt-1 leading-relaxed">{item.description}</p>
           </div>
         ))}
       </div>

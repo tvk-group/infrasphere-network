@@ -114,6 +114,7 @@ export const pt = {
     email: "Email",
     areaOfInterest: "Área de interesse",
     selectArea: "Selecionar uma área",
+    selectCountry: "Selecionar um país",
     message: "Mensagem",
     submit: "Discutir oportunidades de infraestrutura",
     successTitle: "Obrigado pelo seu pedido",
